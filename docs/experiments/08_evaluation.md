@@ -31,7 +31,7 @@ V2 的 [Prompt V2／NoiseMask 配對結果](03_noise_mask.md)已有完整自動�
 
 ![鑰匙、掛鎖與寶箱：Stage 2 使用上一階段生成結果再移除掛鎖](../../assets/results/synthetic_v3/qual_key_x_padlock_x_chest_stage2_chained.png)
 
-圖像保留原分析的 seed 選擇。[完整 V3 表格](../../assets/results/synthetic_v3/table.md)保留每類結果、CI 與 sample wins。
+[完整 V3 表格](../../assets/results/synthetic_v3/table.md)保留每類結果、CI 與 sample wins。
 
 企業合作資料的 steps 比較已保存自動指標與時間：20／30／40 steps 的平均推論時間分別為 36.69／54.66／66.48 秒，品質指標沒有形成一致的排序，仍待人工判讀。[完整 steps 比較](../industry_aggregate_results.md)
 

@@ -20,13 +20,13 @@ V2 已完成生成並保存逐 seed 自動分數。以下為其中不含 class w
 | Qwen Image Edit 2508 prompt-only | 0.373 | 14.10 | 0.553 |
 | Qwen Image Edit 2511 prompt-only | 0.224 | 20.04 | 0.752 |
 
-[戒指案例的完整 seed 圖](../qualitative_results.md#foreground-residue)呈現 prompt-only 可能保留前景的問題。早期 Synthetic V1 的設定身分與來源紀錄不完整，留作歷史研究紀錄；現行量化入口使用 V2。
+[戒指案例的完整 seed 圖](../qualitative_results.md#foreground-residue)呈現 prompt-only 可能保留前景的問題。早期 Synthetic V1 保留為歷史研究紀錄；現行量化比較以 V2 為準。
 
 ## 判讀
 
 自動指標提供模型與提示詞的比較起點，人工評估僅完成部分，因此整體品質結論維持 **Inconclusive**。加入已知類別或遮罩會改變輸入資訊量，不能把跨輸入條件的排名解讀為公平的方法優劣；不同協定也不能直接比較。
 
-模型替換本身不是新演算法。圖像檢視、指標與人工判讀各自回答不同問題，詳見 [評估方法](../evaluation.md)。
+因此後續研究重點轉向輸入、區域與生成過程控制，而非單純比較模型版本。圖像檢視、指標與人工判讀各自回答不同問題，詳見 [評估方法](../evaluation.md)。
 
 ## 對後續研究的影響
 

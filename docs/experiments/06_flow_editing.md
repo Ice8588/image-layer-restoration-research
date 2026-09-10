@@ -36,6 +36,4 @@ Step-window 的負結果只適用於已測條件，不能外推成所有 Flow �
 
 [Signed / extreme scale 完整 aggregate table](../industry_aggregate_results.md) · [評估方法](../evaluation.md) · [其他歷史分支](09_historical_branches.md)
 
-企業合作實驗基於保密限制，僅呈現允許公開的 aggregate results。
-
 [返回研究時間軸](00_research_timeline.md)

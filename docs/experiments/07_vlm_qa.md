@@ -43,6 +43,4 @@ Binary classification 排除 human-uncertain；VLM unavailable 另計，不能�
 
 [完整 V3–V7 數表、分母與 CI](../industry_aggregate_results.md) · [評估方法](../evaluation.md)
 
-基於合作資料保密限制，本頁僅公開 aggregate results。
-
 [返回研究時間軸](00_research_timeline.md)

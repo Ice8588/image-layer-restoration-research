@@ -15,20 +15,18 @@
 
 ## 結果
 
-Guide 建構已完成實作，CPU geometry viability 檢查通過。正式配對品質實驗尚未執行，現有紀錄為 `quality_assessed=false`，沒有配對的正式生成圖像與完整人工評估紀錄。
+Guide 建構與 CPU geometry viability 已完成；正式配對品質實驗尚待執行。
 
 目前完成幾何可行性驗證，**補全品質仍待正式配對實驗評估**。
 
 ## 判讀
 
-結論維持 **Inconclusive**，方法維持 **Experimental**。目前能說明的是幾何 guide 可以建構；是否比 neutral reference 更有助於恢復特定部件，仍需品質實驗回答。未執行的比較也不能列成負結果。
+結論維持 **Inconclusive**，方法維持 **Experimental**。目前能說明的是幾何 guide 可以建構；是否比 neutral reference 更有助於恢復特定部件，仍需品質實驗回答。
 
 ## 對後續研究的影響
 
 保留 matched neutral reference 作為後續對照，先完成配對生成與人工判讀，再考慮是否納入主要流程。這個分支使研究更明確地區分「產生了結構資訊」與「結構資訊對補全有用」。
 
 ## 詳細證據
-
-本頁整理研究設計與既有幾何驗證結果。
 
 [評估方法與效度](../evaluation.md) · [目前研究理解](../research_summary.md) · [返回研究時間軸](00_research_timeline.md)

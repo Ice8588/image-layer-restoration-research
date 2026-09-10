@@ -38,7 +38,7 @@ Parameter、prompt、strength、step-window 或 seed search 是校準與消融�
 
 ## Private Industry Dataset
 
-企業合作資料僅納入經篩選的 [aggregate quantitative results](industry_aggregate_results.md)。原圖、result image、mask、crop、個別 case、內部 metadata 與合作企業名稱均不公開。可能由小群組、互補統計或外部資訊反推出個例的數字，不納入公開統計。
+企業合作資料僅呈現經允許公開的 [aggregate quantitative results](industry_aggregate_results.md)。
 
 <a id="readme-figure-reading-note"></a>
 

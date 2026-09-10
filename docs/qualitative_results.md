@@ -39,7 +39,7 @@
 
 ![戒指 Prompt V2 加入 NoiseMask 全部 seeds](../assets/results/all_seeds/qwen2511_class_word_prompt_v2_lab_noise_mask_oracle_3pct_gem_x_ring_cov30.png)
 
-NoiseMask 的部分戒指 seeds 仍有缺口或形狀變化，因此精選改善案例不能換算為所有 seeds 的成功率。
+不同 seeds 間仍可觀察到缺口與形狀變化，顯示方法收益並非在所有生成結果中一致。
 
 </details>
 
@@ -49,7 +49,7 @@ NoiseMask 的部分戒指 seeds 仍有缺口或形狀變化，因此精選改善
 
 ![寶箱補全｜高遮擋案例](../assets/results/paired/qual_coin_x_chest_cov70.png)
 
-兩種設定都移除了硬幣，但鎖扣的形狀、顏色與位置仍可能偏離目標。第 2 列加入 NoiseMask 後的 LPIPS 較低，第 1、3 列則未較低；這張代表圖不能當成所有樣本都改善。
+兩種設定都移除了硬幣，但鎖扣的形狀、顏色與位置仍可能偏離目標。第 2 列加入 NoiseMask 後的 LPIPS 較低，第 1、3 列則未較低；不同樣本的改善程度並不一致，整體效果請參考完整配對統計。
 
 ### 旗幟補全｜移除徽章後的布面
 
@@ -103,7 +103,7 @@ NoiseMask 的部分戒指 seeds 仍有缺口或形狀變化，因此精選改善
 
 ## 典型失敗案例與完整 seed 變化
 
-以下三張圖皆保留 seeds 0–4。分類依畫面可直接觀察的現象，未推定模型內部原因，也沒有把視覺觀察換算成人工通過率。
+以下三張圖皆保留 seeds 0–4。以下依畫面可直接觀察的失敗型態整理，不推定未經驗證的內部成因。
 
 <a id="foreground-residue"></a>
 
@@ -127,7 +127,7 @@ NoiseMask 的部分戒指 seeds 仍有缺口或形狀變化，因此精選改善
 
 ### 如何看非編輯區域
 
-補全之外，也要對照仍可見的外框、表面與位置。現有配對圖經 object-centric normalization，可能淡化位移；本頁不據此把每處差異都判成非編輯區域破壞。判定 Region Damage 需回到 full-canvas 與實際編輯範圍，見 [評估方法](evaluation.md)。
+補全之外，也要對照仍可見的外框、表面與位置。現有配對圖經 object-centric normalization，可能淡化位移。Region Damage 需回到 full-canvas 與實際編輯範圍判定，見 [評估方法](evaluation.md)。
 
 ## 多階段補全
 

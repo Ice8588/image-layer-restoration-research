@@ -29,7 +29,7 @@ BBox 是畫在 composite RGB 上的視覺標記；另一組 GT visible-mask guid
 
 ## 判讀
 
-結論保留為 **Negative under tested metric conditions**：本設定下未觀察到整體改善。Qwen 的 3 px PSNR 略高，但 LPIPS 與 SSIM 未改善，不能寫成所有指標都退步。
+結論保留為 **Negative under tested metric conditions**：本設定下未觀察到整體改善。Qwen 3 px 的 PSNR 略高，但 LPIPS 與 SSIM 未改善，因此整體未呈現一致收益。
 
 一個可能解釋是綠框被模型當成要生成或保留的圖像內容；現有結果尚未驗證這個原因。這項負結果針對測試過的視覺框形式與輸入條件，不外推至所有區域引導。自動指標與人工美術品質仍需分開判讀。
 
@@ -40,7 +40,5 @@ BBox 沒有納入主要流程（**Not Adopted**）。研究保留此負結果，
 ## 詳細證據
 
 [完整 summary 與配對比較](../../assets/results/synthetic_v2/summary.json) · [逐 seed 分數](../../assets/results/synthetic_v2/scores.csv) · [protocol](../../assets/results/synthetic_v2/protocol.json) · [評估方法](../evaluation.md)
-
-原始 configuration identifiers 與完整結果保留在數據中；本文只節錄對應的綠框比較。
 
 [返回研究時間軸](00_research_timeline.md)

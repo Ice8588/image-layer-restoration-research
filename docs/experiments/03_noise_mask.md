@@ -25,13 +25,13 @@ Prompt-based editing 能執行物件移除，但非編輯區域可能跟著改�
 
 ## 判讀
 
-結論維持 **Positive under tested automatic metrics**。這支持在目前合成資料與已知輸入條件下保留 NoiseMask，但配對比較的 270 個新增 QA tuples 尚待人工判讀，不能將指標收益換算為人工通過率。
+結論維持 **Positive under tested automatic metrics**。目前證據支持在合成資料與已知輸入條件下的自動指標改善；配對比較的 270 個新增 QA tuples 尚待人工判讀，對應的人工品質通過率仍待完成 QA 後確認。
 
 合成 GT 來自自行生成素材，尚不足以推論真實美術的普遍效果。Object-centric ROI normalization 可能淡化位置偏移，需搭配 full-canvas 檢視；RGB surrogate 也仍需另外驗證 RGBA 圖層可用性。細節見 [評估方法與圖像限制](../evaluation.md)。
 
 ## 對後續研究的影響
 
-Qwen class-word Prompt V2 + Lab NoiseMask 3% 保留為目前合成資料研究採用設定（**Current**）。Layer Lab 使用的通用移除提示詞另有操作需求，不能直接以這個 oracle 實驗取代系統設定。
+Qwen class-word Prompt V2 + Lab NoiseMask 3% 保留為目前合成資料研究採用設定（**Current**）。Synthetic oracle 實驗與 Layer Lab 的產品設定分開管理，後者使用通用移除提示詞。
 
 早期設定與後續探索見 [歷史分支](09_historical_branches.md)。
 

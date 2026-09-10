@@ -44,6 +44,6 @@
 
 [Attentive Eraser 等 Synthetic V2 完整 summary](../../assets/results/synthetic_v2/summary.json) · [逐 seed 分數](../../assets/results/synthetic_v2/scores.csv) · [protocol](../../assets/results/synthetic_v2/protocol.json) · [歷史分支](09_historical_branches.md) · [評估方法](../evaluation.md)
 
-上述公開數據涵蓋其中的合成資料設定；其他 screens 與 trace 在此保留研究摘要，沒有附完整逐筆資料。
+上述公開數據涵蓋其中的合成資料設定。
 
 [返回研究時間軸](00_research_timeline.md)

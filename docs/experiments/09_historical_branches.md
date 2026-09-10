@@ -19,7 +19,7 @@
 
 ## KV-Edit 的重要邊界
 
-官方 FLUX.1 執行核心與 FLUX.2 experimental port 使用不同模型基礎與執行核心。不同 inversion／denoising steps、guidance 和移除 prompt 不能寫成 equal-setting comparison。早期 smoke 曾出現區域內彩色碎點，屬於已觀察現象；不能只憑該現象宣稱是 prompt 或 attention 的已驗證失敗原因。第三方核心沒有搬入精選實作。
+官方 FLUX.1 執行核心與 FLUX.2 experimental port 使用不同模型基礎與執行核心。不同 inversion／denoising steps、guidance 和移除 prompt 不能寫成 equal-setting comparison。早期 smoke 曾出現區域內彩色碎點，屬於已觀察現象；不能只憑該現象宣稱是 prompt 或 attention 的已驗證失敗原因。
 
 ## 停止的矩陣
 
