@@ -2,7 +2,9 @@
 
 本研究的生成／補全功能與其他模組合併後，整合成果位於 Layer Lab 專案。
 
-[觀看 Layer Lab Demo（約 1 分 28 秒）](../assets/prototype/Layer_Lab_DEMO.mp4)
+https://github.com/user-attachments/assets/5b7b9321-4069-4f06-bf7e-644f1d1b779f
+
+約 1 分 28 秒。[下載 MP4](../assets/prototype/Layer_Lab_DEMO.mp4)
 
 ## 1. 匯入素材
 

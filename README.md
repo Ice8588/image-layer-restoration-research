@@ -29,7 +29,9 @@ Synthetic V2 包含 **30 experimental configurations × 27 samples × 5 seeds**�
 
 ## Layer Lab Demo
 
-[觀看 Demo（MP4，約 1 分 28 秒）](assets/prototype/Layer_Lab_DEMO.mp4)
+https://github.com/user-attachments/assets/5b7b9321-4069-4f06-bf7e-644f1d1b779f
+
+約 1 分 28 秒。[下載 MP4](assets/prototype/Layer_Lab_DEMO.mp4)
 
 影片示範從一張插圖建立獨立圖層的操作：
 
