@@ -19,7 +19,7 @@ RQ2 structure vs matched neutral reference；先進行 frozen geometry applicabi
 
 已凍結比較契約；geometry proposal 與生成品質分別驗證。
 
-資料性質：Synthetic Benchmark；部分研究另使用 Private Industry Dataset（本候選不公開其量化數值與個例）。
+資料性質：Synthetic Benchmark；部分研究另使用 Private Industry Dataset（僅公開經篩選的 aggregate quantitative results，個例與 metadata 不公開）。
 
 Input／output：輸入 visible geometry 與區域條件；目前驗證輸出為 deterministic guide，未驗證完整補全圖像。
 

@@ -14,7 +14,7 @@ Synthetic／AI-generated benchmark 可支持 smoke、controlled experiments、me
 
 ## Synthetic V2 的量測範圍
 
-固定 9 classes、27 samples、5 inference seeds，30 methods 的完整逐 seed scores 共 4,050 筆。coverage 與 class 綁定，所以不能作覆蓋率的因果推論。模型／方法／guidance／oracle 分欄保存，跨 input privilege 不做 input-fair 排名。
+固定 9 classes、27 samples、5 inference seeds，30 experimental configurations 的完整逐 seed scores 共 4,050 筆。這 30 個設定包括模型、prompt、mask 與 parameter variants，不是 30 個獨立研究方法。歷史資料中的 `method`／`methods` 欄位保留原 schema，應讀作 configuration identifiers。coverage 與 class 綁定，所以不能作覆蓋率的因果推論。模型／方法／guidance／oracle 分欄保存，跨 input privilege 不做 input-fair 排名。
 
 公開 [protocol.json](../assets/results/synthetic_v2/protocol.json) 記錄 ROI、fallback、metrics、aggregation 與相依版本；[scores.csv](../assets/results/synthetic_v2/scores.csv) 保存逐 sample／seed 分數。[summary.json](../assets/results/synthetic_v2/summary.json) 保存分層與 paired summaries。
 
@@ -38,4 +38,10 @@ Parameter、prompt、strength、step-window 或 seed search 是校準與消融�
 
 ## Private Industry Dataset
 
-部分研究使用企業合作提供之非公開 2D 圖像資料。此候選不公開原始圖像、個別案例或內部 metadata。整體量化數值尚未取得明確公開確認，因此本版也不刊登企業 aggregate；這不代表未做過相關實驗。
+企業合作資料僅納入經篩選的 [aggregate quantitative results](industry_aggregate_results.md)。原圖、result image、mask、crop、個別 case、內部 metadata 與合作企業名稱均不公開。可能由小群組、互補統計或外部資訊反推出個例的數字，保留在私有 manual review。
+
+## README Figure Reading Note
+
+README 首圖是黑底 RGB synthetic research surrogate，使用 oracle class words／mask；不是 RGBA 完整層驗收，也不證明 artist-authored artwork 的普遍補全能力。比較 Qwen Image Edit 2511 Prompt V2 與同提示詞 NoiseMask 3%，保留三個樣本，seed 依既有 median-LPIPS 規則選取，不是隨機挑圖或人工 pass。Median-seed 圖不能代表全 seed 成功率；[完整配對與 all-seed 失敗圖](qualitative_results.md)一併保留。
+
+首圖標示的 object-centric metrics 使用既有 ROI normalization，可能淡化位置 drift；須配合 full-canvas inspection。README 數值表則為 9-class macro。兩者不能當作逐張 operator 判定，也不可與 V3 reveal-region 或企業 direct-reveal 指標混排。Automatic metrics、人工 review 與實際 RGBA 可用性是不同證據。

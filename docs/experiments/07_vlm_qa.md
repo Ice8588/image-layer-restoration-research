@@ -19,13 +19,13 @@
 
 固定同一批候選像素再比較 QA，區分 candidate-level detection 與 stage-level selection。
 
-資料性質：Synthetic Benchmark；部分研究另使用 Private Industry Dataset（本候選不公開其量化數值與個例）。
+資料性質：Synthetic Benchmark；部分研究另使用 Private Industry Dataset（僅公開經篩選的 aggregate quantitative results，個例與 metadata 不公開）。
 
 Input／output：輸入 source／candidate 與區域提示；輸出 structured QA／selection，不直接產生 RGBA layer。
 
 ## Evaluation 與 Observation
 
-後續 matched diagnostic 有 selector 收益，但沒有消除 sentinel failure；目前保留 V3。企業資料原圖、標籤、分母與精確數值均未公開。
+後續 matched diagnostic 有 selector 收益，但沒有消除 sentinel failure；目前保留 V3。企業資料原圖與逐筆標籤不公開；經篩選的整體分母與量化比較見 [企業 aggregate](../industry_aggregate_results.md)。
 
 Automatic metrics、qualitative inspection、human QA、operator QA 分別記錄；[評估契約](../evaluation.md)說明各層級。
 

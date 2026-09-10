@@ -41,7 +41,15 @@ flowchart TD
 
 ## Demo
 
-已搜尋歷史與現行錄影；完整候選清冊和安全審查保存在非公開工作區。未通過圖像及畫面資訊審查的 Demo 不加入本 repository；本次未重錄。
+[Layer Lab Demo（約 1 分 28 秒）](../assets/prototype/Layer_Lab_DEMO.mp4)展示提供既有 masks 後的逐層生成／補全、部件檢視與候選歷史。影片無音軌，生成等待段已加速。
+
+畫面操作與路由較接近 Legacy 實作，但缺乏錄製時的 runtime／commit 證據，不能排除較早的 standalone 或其他部署設定。因此使用中性標籤 **Layer Lab provided-mask workflow**，不將版本推論寫成已確認事實，也不把該片當作現行 standalone 自動分層實錄。素材來源見 [Demo artwork](public_sources.md#demo-artwork)。
+
+## Standalone UI 靜態畫面
+
+![Standalone desktop UI](../assets/prototype/standalone_desktop_ui.png)
+
+取自 standalone 專案 2026-08-26 既有 browser review。漸層與圓形為介面 fixture，結果欄為空；它展示真實介面配置，不是生成品質、端到端成功或最新部署的證據。研究結果仍以獨立 qualitative comparison 呈現。
 
 ## Legacy UI 靜態畫面
 

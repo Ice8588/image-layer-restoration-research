@@ -19,13 +19,13 @@ Step-window pilot、signed/extreme sweep、RQ1 transport 是不同分支，不�
 
 Step-window 使用 fresh baseline 與 matched pass/fail；RQ1 需要自己的 mechanical gate、paired pixels 與 operator review。
 
-資料性質：Synthetic Benchmark；部分研究另使用 Private Industry Dataset（本候選不公開其量化數值與個例）。
+資料性質：Synthetic Benchmark；部分研究另使用 Private Industry Dataset（僅公開經篩選的 aggregate quantitative results，個例與 metadata 不公開）。
 
 Input／output：Composite RGB、文字；依 arm 加 BBox／oracle mask。輸出為黑底 RGB research surrogate，未因此達成 RGBA layer。
 
 ## Evaluation 與 Observation
 
-歷史 step-window pilot 未支持替換 baseline；signed/extreme 只有 automatic evidence。RQ1 formal terminal evidence 尚缺。企業資料的數值與個例不在此公開。
+歷史 step-window pilot 未支持替換 baseline；signed/extreme 只有 automatic evidence。RQ1 formal terminal evidence 尚缺。[企業 aggregate](../industry_aggregate_results.md)保留 signed/extreme 整體比較；小型 pilot 數值另待再識別風險審閱，個例不公開。
 
 Automatic metrics、qualitative inspection、human QA、operator QA 分別記錄；[評估契約](../evaluation.md)說明各層級。
 

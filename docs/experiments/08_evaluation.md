@@ -19,7 +19,7 @@ Synth V2 object-centric analysis、Synth V3 two-stage chained comparison、indep
 
 區分 exact-mask、object-centric 與 chained scope；各自保留資料、seed、prompt、mask 和模型契約。
 
-資料性質：Synthetic Benchmark；部分研究另使用 Private Industry Dataset（本候選不公開其量化數值與個例）。
+資料性質：Synthetic Benchmark；部分研究另使用 Private Industry Dataset（僅公開經篩選的 aggregate quantitative results，個例與 metadata 不公開）。
 
 Input／output：Composite RGB、文字；依 arm 加 BBox／oracle mask。輸出為黑底 RGB research surrogate，未因此達成 RGBA layer。
 

@@ -19,7 +19,7 @@ Multi-mask、DOE、factorial screens；Attentive Eraser mask ladder；reference-
 
 各 screen 有各自 baseline、gate 與輸入。不可把它們視為同一個 matched experiment。
 
-資料性質：Synthetic Benchmark；部分研究另使用 Private Industry Dataset（本候選不公開其量化數值與個例）。
+資料性質：Synthetic Benchmark；部分研究另使用 Private Industry Dataset（僅公開經篩選的 aggregate quantitative results，個例與 metadata 不公開）。
 
 Input／output：Composite RGB、文字；依 arm 加 BBox／oracle mask。輸出為黑底 RGB research surrogate，未因此達成 RGBA layer。
 

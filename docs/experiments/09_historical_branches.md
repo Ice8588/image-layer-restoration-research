@@ -1,6 +1,6 @@
 # 其他歷史分支與未完成工作
 
-這些分支保留研究問題與終止／缺證原因；不併入 30-method Synthetic V2 表作直接排名。下列紀錄截至各原始研究報告，再由本次本機核對補充；缺少新的 terminal artifact 不推定有新結果。
+這些分支保留研究問題與終止／缺證原因；不併入 30 experimental configurations 的 Synthetic V2 表作直接排名。下列紀錄截至各原始研究報告，再由本次本機核對補充；缺少新的 terminal artifact 不推定有新結果。
 
 | 分支 | Execution Status | Evidence Status | Conclusion | Adoption Status |
 |---|---|---|---|---|

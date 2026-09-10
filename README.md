@@ -2,15 +2,17 @@
 
 ### Foreground Removal and Amodal Completion for Non-Photorealistic 2D Graphics
 
-移除前景之後，如何補回原本被遮住的**特定後景部件**，並維持身份、外觀、幾何、位置與畫風？本研究以遊戲 UI／人物插圖等非寫實 2D 圖像為對象，建立 baseline、合成 benchmark、方法分支與逐層評估流程，並把研究功能整合到可操作的 Prototype。
+**問題：**移除前景之後，如何補回被遮住的**特定後景部件**，並維持身份、外觀、幾何、位置與畫風？
 
-本 repository 是研究歷程、實驗資料與精選實作的展示：保留正面、負面、無定論與 diagnostic evidence，不將所有實驗包裝成連續改善。
+**研究做法：**以非寫實遊戲 UI／人物插圖為對象，建立模型與提示詞 baseline，比較區域引導與 NoiseMask 等設定，以合成 benchmark 和逐層評估檢查補全結果，再將功能整合到 Layer Lab。
 
-**Abstract.** This research studies foreground removal and identity-specific amodal completion for non-photorealistic 2D graphics. Controlled synthetic experiments examine conditioning, region preservation, and evaluation. Negative and inconclusive branches remain part of the record. Automatic metrics, human review, and system usability support distinct claims.
+**Qualitative result：**下圖比較同一提示詞加入 NoiseMask 前後的寶箱補全。
 
-![Synthetic baseline and evaluated variant](assets/results/paired/qual_coin_x_chest_cov70.png)
+<img src="assets/results/paired/qual_coin_x_chest_cov70.png" alt="Synthetic baseline and evaluated variant" width="640">
 
-**Baseline → Evaluated Variant**：Qwen Image Edit 2511 Prompt V2 與同提示詞 NoiseMask 3%。這是黑底 RGB synthetic research surrogate，使用 oracle class words／mask；非 RGBA 完整層驗收。圖保留三個樣本，seed 依既有 median-LPIPS 規則選取；不等於人工 pass。[全部配對與 all-seed 圖](docs/qualitative_results.md)
+*Qwen Image Edit 2511 Prompt V2 → 同提示詞 + NoiseMask 3%。[圖像選取、oracle inputs 與評估範圍](docs/evaluation.md#readme-figure-reading-note) · [全部配對與 all-seed 圖](docs/qualitative_results.md)*
+
+**Abstract.** This research studies foreground removal and identity-specific amodal completion for non-photorealistic 2D graphics through controlled comparisons of conditioning and region preservation. This archive retains positive, negative, inconclusive, and diagnostic evidence. Automatic metrics, human review, and system usability support distinct claims.
 
 ## 研究問題
 
@@ -39,7 +41,7 @@ Baseline 分出 BBox、NoiseMask、attention、structure、flow 與 QA 分支。
 
 ### Synthetic Benchmark
 
-目前 Synth V2 公開整理包含 30 methods × 27 samples × 5 seeds 的 4,050 筆分數。下表只比較 matched Prompt V2 pair，使用 9-class macro，不能與其他資料／metric scope 直接排名。
+目前 Synth V2 公開整理包含 30 experimental configurations × 27 samples × 5 seeds 的 4,050 筆分數。Configurations 包括模型、prompt、mask 與 parameter variants，不代表 30 個獨立研究方法。下表只比較 matched Prompt V2 pair，使用 9-class macro，不能與其他資料／metric scope 直接排名。
 
 | Qwen Image Edit 2511 / oracle inputs | LPIPS ↓ | PSNR ↑ | SSIM ↑ |
 |---|---:|---:|---:|
@@ -52,11 +54,7 @@ Baseline 分出 BBox、NoiseMask、attention、structure、flow 與 QA 分支。
 
 ### Private Industry Dataset
 
-部分研究使用企業合作資料；本候選不公開任何原圖、個別案例或內部 metadata。整體量化數值仍待公開許可，本版不刊登。
-
-## Legacy Research Prototype
-
-早期 Layer Lab 承載生成／補全／QA／結果檢視，現為 **Legacy / Historical Prototype**，保留作歷史與 rollback 參考。
+企業合作資料只公開經篩選的 aggregate quantitative results；不公開原圖、result image、mask、crop、個別 case、內部 metadata 或合作企業名稱。[整體量化結果與限制](docs/industry_aggregate_results.md)包含 QA frozen replay、steps comparison 與 Flow 診斷；不改變原有研究結論。
 
 ## Standalone Layer Lab
 
@@ -64,9 +62,19 @@ Baseline 分出 BBox、NoiseMask、attention、structure、flow 與 QA 分支。
 
 [系統演進與兩種 QA 流程](docs/system_evolution.md)
 
+![Standalone Layer Lab desktop interface](assets/prototype/standalone_desktop_ui.png)
+
+*Standalone 專案 2026-08-26 既有桌面介面測試截圖，使用漸層與圓形 fixture；展示操作配置，非生成結果、品質驗收或最新部署截圖。*
+
+早期 Legacy Prototype 的空白 UI 僅保留在 [system evolution / historical prototype](docs/system_evolution.md#legacy-ui-靜態畫面)。
+
 ## Demo
 
-已搜尋錄影；未經完整安全確認的錄影不在此公開，私有 audit 保存版本與待處理項目。本次未重錄或上傳 Demo。
+**[觀看 Layer Lab Demo（MP4，約 1 分 28 秒）](assets/prototype/Layer_Lab_DEMO.mp4)**
+
+實際操作展示：匯入圖片與既有 masks → 逐層生成／補全 → 檢視獨立部件、背景與候選歷史。生成等待段已加速，影片長度不是端到端推論時間。
+
+錄影的精確版本未核實，故標為 **Layer Lab provided-mask workflow**；它展示所錄版本的功能，不作現行 standalone 自動分層實錄或研究品質通過的證據。[影片素材來源與衍生內容說明](docs/public_sources.md#demo-artwork)
 
 ## 個人貢獻
 

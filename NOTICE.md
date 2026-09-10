@@ -7,3 +7,7 @@
 NumPy、Pillow、scikit-image、PyTorch、LPIPS 為外部相依，依各自授權使用；本 repository 不封裝其程式或模型權重。Attentive Eraser、KV-Edit、ConceptAttention、ComfyUI 與模型內部移植程式均未搬入。其研究名稱只用於實驗識別，不表示本研究者原創。
 
 完整原始來源對照與權利審核留在非公開工作區；本頁不含內部路徑與個別企業案例。
+
+企業合作資料 / Private Industry Dataset 只刊登經篩選的 aggregate quantitative results，不含原圖、result image、mask、crop、個別 case、內部 metadata 或企業真名。Standalone UI 圖取自既有介面測試，使用簡單漸層 fixture，不是企業素材或模型生成成果。
+
+Layer Lab Demo 使用 Qwen-Image-Layered 官方公開示例及研究衍生結果，來源、修改說明與上游授權副本見 [Demo artwork](docs/public_sources.md#demo-artwork)。底層 illustration 不列為個人原創；影片也不構成 artist-authored GT 或正式 operator QA 通過的證據。
