@@ -8,7 +8,7 @@
 
 官方 README 與 [LICENSE](https://github.com/QwenLM/Qwen-Image-Layered/blob/54c4fe47e76d745775e03fc66ee38457280ed9ea/LICENSE) 標示 Apache-2.0。本作品集保留來源與授權文字，展示下述 Demo；沒有另外打包原始 input PNG、衍生 mask dataset 或模型權重。公開來源素材不分類為企業機密。
 
-本機研究使用 13 張官方 input PNG，其中 12 張進入 mask-authoring，形成 64 個 semantic removal units 與 76 張 visible ownership masks。這些是公開輸入的研究衍生標註，並非官方 training corpus、PSD 或 hidden-region exact GT。正式 layer GT 與 completion target 均為 0，operator decisions 仍 pending。Predicted amodal masks 不能當成 artist-authored GT。
+本機研究使用 13 張官方 input PNG，其中 12 張進入 mask-authoring，形成 64 個 semantic removal units 與 76 張 visible ownership masks。這些是公開輸入的研究衍生標註，並非官方 training corpus、PSD 或 hidden-region exact GT。正式 layer GT 與 completion target 均為 0，人工判讀尚未完成。Predicted amodal masks 不能當成 artist-authored GT。
 
 ## Demo Artwork
 
@@ -20,9 +20,9 @@
 
 來源：[Live2D 官方 sample download](https://www.live2d.com/en/learn/sample/)。適用 [Free Material License Agreement](https://www.live2d.com/eula/live2d-free-material-license-agreement_en.html) 與 [各角色使用條款](https://www.live2d.com/en/learn/sample/model-terms/)。
 
-條款依使用者類別、角色與呈現形式區分；原始 archives／models／textures 的再散布和 renderer 衍生展示不能混為一談。Miara 與 Hiyori Momose 另限制角色設計變更。個人／學生展示可能有可用範圍，但仍需確認申請人身分、指定 copyright notice 與輸出是否符合個別條款。本候選保留來源和研究說明，暫不打包原始資料或衍生 GT。
+條款依使用者類別、角色與呈現形式區分；原始 archives／models／textures 的再散布和 renderer 衍生展示不能混為一談。Miara 與 Hiyori Momose 另限制角色設計變更。個人／學生展示可能有可用範圍，但仍需確認申請人身分、指定 copyright notice 與輸出是否符合個別條款。本 repository 保留來源和研究說明，未收錄原始資料或衍生 GT。
 
-研究已建立 renderer／ownership／direct-reveal 診斷：Drawable 聯集不必然是美術上獨立部件，renderer correctness 不等於 component benchmark admission。Fixed-pose census 和 predicted semantic groups 仍須 operator QA；不是經驗證的 amodal-completion 效能 benchmark。
+研究已建立 renderer／ownership／direct-reveal 診斷：Drawable 聯集不必然是美術上獨立部件，renderer correctness 不等於 component benchmark admission。Fixed-pose census 和 predicted semantic groups 仍須人工評估；不是經驗證的 amodal-completion 效能 benchmark。
 
 ## 本版選擇
 

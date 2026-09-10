@@ -1,42 +1,46 @@
-# BBox 與區域資訊
+# BBox Guidance：位置資訊是否有助於補全？
 
-| 維度 | 狀態 |
-|---|---|
-| Execution Status | Generation Completed |
-| Evidence Status | Automatic Metrics |
-| Conclusion | Negative under tested metric conditions |
-| Adoption Status | Not Adopted |
+## 研究動機
 
-## 問題與 Hypothesis
+文字指令可能不足以精確指定要移除的物件。這項實驗在輸入圖上加入綠色 BBox，希望以位置線索減少模型找錯物件的情形，並檢查線寬是否影響生成。
 
-文字可能無法精確指定要移除的物件；測試視覺 BBox 能否提供位置線索。 Hypothesis 是研究問題，不是已證明結論。
+## 實驗設計
 
-## 方法與 baseline
+在 Synthetic V2 中固定同模型、合成樣本與 seeds 0–4，比較對應的 class-word prompt 與綠框設定，線寬包括 3 px、1% 與 2%。類別文字取自已知標註，屬於 oracle input。
 
-綠框 overlay 與線寬 3 px／1%／2% 比較；另有 GT visible-mask guidance，兩者不是同一種輸入。
+BBox 是畫在 composite RGB 上的視覺標記；另一組 GT visible-mask guidance 則提供已知遮罩。兩者帶入模型的資訊形式不同，分開分析。生成輸出仍為黑底 RGB surrogate。
 
-## 變因與資料
+## 結果
 
-同模型、同合成樣本、同 seed；線寬比較使用對應 class-word prompt arms。
+既有 9-class macro 顯示，FLUX.2 綠框設定弱於對應的 class-word baseline；Qwen 的較粗線寬也沒有帶來預期改善：
 
-資料性質：Synthetic Benchmark。
+| 模型與設定 | LPIPS ↓ | PSNR ↑ | SSIM ↑ |
+|---|---:|---:|---:|
+| FLUX.2 class-word baseline | 0.085 | 23.88 | 0.888 |
+| FLUX.2 + 綠框 3 px | 0.459 | 11.45 | 0.541 |
+| FLUX.2 + 綠框 1% | 0.460 | 11.36 | 0.540 |
+| FLUX.2 + 綠框 2% | 0.468 | 11.18 | 0.534 |
+| Qwen 2511 class-word baseline | 0.068 | 26.02 | 0.898 |
+| Qwen 2511 + 綠框 3 px | 0.075 | 26.24 | 0.890 |
+| Qwen 2511 + 綠框 1% | 0.080 | 26.01 | 0.885 |
+| Qwen 2511 + 綠框 2% | 0.098 | 25.53 | 0.867 |
 
-Input／output：Composite RGB、文字；依 arm 加 BBox／oracle mask。輸出為黑底 RGB research surrogate，未因此達成 RGBA layer。
+這裡的 Qwen baseline 是早期 class-word prompt，與後來的 Prompt V2 分開比較。數值摘自既有 summary，沒有重新計分。
 
-## Evaluation 與 Observation
+## 判讀
 
-canonical report 中較粗 BBox 的 macro 指標較弱；FLUX.2 BBox arms 也弱於 class-word prompt。此為本次設定下的負結果。
+結論保留為 **Negative under tested metric conditions**：本設定下未觀察到整體改善。Qwen 的 3 px PSNR 略高，但 LPIPS 與 SSIM 未改善，不能寫成所有指標都退步。
 
-Automatic metrics、qualitative inspection、human QA、operator QA 分別記錄；[評估契約](../evaluation.md)說明各層級。
+一個可能解釋是綠框被模型當成要生成或保留的圖像內容；現有結果尚未驗證這個原因。這項負結果針對測試過的視覺框形式與輸入條件，不外推至所有區域引導。自動指標與人工美術品質仍需分開判讀。
 
-## 解釋、採用與限制
+## 對後續研究的影響
 
-綠框可能被當成圖像內容是可能解釋，尚非已驗證原因；保留負例供區域指示設計參考。
+BBox 沒有納入主要流程（**Not Adopted**）。研究保留此負結果，並把「提供位置資訊」與「實際限制修改範圍」分開考慮，進一步比較 [NoiseMask](03_noise_mask.md)。已知遮罩帶來額外輸入資訊，因此不能與純文字或綠框設定直接作輸入公平的排名。
 
-Verified Cause：本頁未額外提出已驗證機制原因。跨協定結果為 **Not directly comparable**。
+## 詳細證據
 
-## 可閱覽證據
+[完整 summary 與配對比較](../../assets/results/synthetic_v2/summary.json) · [逐 seed 分數](../../assets/results/synthetic_v2/scores.csv) · [protocol](../../assets/results/synthetic_v2/protocol.json) · [評估方法](../evaluation.md)
 
-[Synthetic V2 完整數表](../../assets/results/synthetic_v2/summary.json) · [逐 seed 分數](../../assets/results/synthetic_v2/scores.csv) · [圖像索引](../qualitative_results.md)
+原始 configuration identifiers 與完整結果保留在數據中；本文只節錄對應的綠框比較。
 
-[返回實驗索引](00_research_timeline.md)
+[返回研究時間軸](00_research_timeline.md)

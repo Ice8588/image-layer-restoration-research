@@ -1,42 +1,39 @@
 # Prompt 與模型 baseline
 
-| 維度 | 狀態 |
-|---|---|
-| Execution Status | Generation Completed |
-| Evidence Status | Automatic Metrics; partial Human QA |
-| Conclusion | Inconclusive |
-| Adoption Status | Historical |
+## 研究動機
 
-## 問題與 Hypothesis
+前景移除與部件還原是兩個不同要求：模型可能消除遮擋物，卻改寫後景的形狀或細節。研究起點是建立相同輸入下的基準，分開觀察前景殘留、指定部件補全與非編輯區域變動，再決定需要哪一類控制。
 
-建立相同輸入下的移除／補全基準，分開觀察前景殘留與特定後景部件恢復。 Hypothesis 是研究問題，不是已證明結論。
+## 實驗設計
 
-## 方法與 baseline
+比較 FLUX.2、Qwen Image Edit 2508／2511 的 prompt-only 與 class-word 設定。Synthetic V2 固定 27 張合成圖、9 個類別與 inference seeds 0–4；class-word 設定使用已知目標類別文字，因此屬於 oracle input。
 
-FLUX.2、Qwen Image Edit 2508／2511 的 prompt-only 與 class-word arms。class words 來自 GT，必須另標 oracle。
+輸入為 composite RGB 與文字，部分比較另加入 BBox 或已知遮罩。輸出以黑底 RGB 表示部件，作為補全研究的替代表示（RGB surrogate），尚需另外驗證 RGBA 完整圖層的可用性。模型版本與輸入資訊量分開記錄，跨模型比較不當成單一機制消融。
 
-## 變因與資料
+## 結果
 
-固定 Synth V2 的 27 張合成圖與 inference seeds 0–4。模型版本改變屬跨模型比較，不是單一機制消融。
+V2 已完成生成並保存逐 seed 自動分數。以下為其中不含 class words 的 prompt-only 基準，直接摘自既有 9-class macro，供閱讀各模型起點：
 
-資料性質：Synthetic Benchmark。
+| 設定 | LPIPS ↓ | PSNR ↑ | SSIM ↑ |
+|---|---:|---:|---:|
+| FLUX.2 prompt-only | 0.306 | 16.47 | 0.681 |
+| Qwen Image Edit 2508 prompt-only | 0.373 | 14.10 | 0.553 |
+| Qwen Image Edit 2511 prompt-only | 0.224 | 20.04 | 0.752 |
 
-Input／output：Composite RGB、文字；依 arm 加 BBox／oracle mask。輸出為黑底 RGB research surrogate，未因此達成 RGBA layer。
+[戒指案例的完整 seed 圖](../qualitative_results.md#foreground-residue)呈現 prompt-only 可能保留前景的問題。早期 Synthetic V1 的設定身分與來源紀錄不完整，留作歷史研究紀錄；現行量化入口使用 V2。
 
-## Evaluation 與 Observation
+## 判讀
 
-已保存 automatic scores。早期 Synth V1 有 method identity／provenance 缺口，僅保留歷史問題，現行數表使用 V2。
+自動指標提供模型與提示詞的比較起點，人工評估僅完成部分，因此整體品質結論維持 **Inconclusive**。加入已知類別或遮罩會改變輸入資訊量，不能把跨輸入條件的排名解讀為公平的方法優劣；不同協定也不能直接比較。
 
-Automatic metrics、qualitative inspection、human QA、operator QA 分別記錄；[評估契約](../evaluation.md)說明各層級。
+模型替換本身不是新演算法。圖像檢視、指標與人工判讀各自回答不同問題，詳見 [評估方法](../evaluation.md)。
 
-## 解釋、採用與限制
+## 對後續研究的影響
 
-不能把模型替換寫成新演算法，也不能把不同 input privilege 的排名當作公平比較。
+這批 baseline 保留為歷史基準，讓後續能問更具體的問題：[BBox 是否能提供位置線索](02_region_guidance.md)、[NoiseMask 是否能限制無關變動](03_noise_mask.md)，以及複雜控制是否值得加入。後續比較固定對應 baseline、樣本與 seed，避免把多個變因的差異歸因於單一控制。
 
-Verified Cause：本頁未額外提出已驗證機制原因。跨協定結果為 **Not directly comparable**。
+## 詳細證據
 
-## 可閱覽證據
+[完整 summary](../../assets/results/synthetic_v2/summary.json) · [逐 seed 分數](../../assets/results/synthetic_v2/scores.csv) · [protocol](../../assets/results/synthetic_v2/protocol.json) · [質化結果](../qualitative_results.md) · [V1 與其他歷史工作](09_historical_branches.md)
 
-[Synthetic V2 完整數表](../../assets/results/synthetic_v2/summary.json) · [逐 seed 分數](../../assets/results/synthetic_v2/scores.csv) · [圖像索引](../qualitative_results.md)
-
-[返回實驗索引](00_research_timeline.md)
+[返回研究時間軸](00_research_timeline.md)

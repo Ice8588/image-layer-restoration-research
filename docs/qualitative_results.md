@@ -1,57 +1,97 @@
-# Qualitative Results
+# 質化結果與失敗案例
 
-現有 canonical 圖直接保留；未裁掉失敗 seed。以下屬 Synthetic Benchmark，來源公開許可由研究者確認。配對圖由原分析的 median-LPIPS seed 規則選取，不代表最佳 seed，也不等於人工 pass。
+本頁用原有圖像回答三個問題：前景有沒有消失、指定後景有沒有補對、其他區域有沒有保持。配對圖涵蓋九類合成案例，失敗區與完整 seed 變化一併保留。
 
-## Baseline → Evaluated Variant
+配對圖左起為 **輸入 → 合成目標 → Qwen Prompt V2 → 同提示詞 + NoiseMask 3%**。沿用原分析的 median-LPIPS seed 規則，沒有改選結果；這些代表圖不是人工通過清單。輸入使用已知類別與遮罩，輸出為 RGB surrogate，詳見 [評估方法與圖像限制](evaluation.md#readme-figure-reading-note)。
 
-### qual_coin_x_chest_cov70
+## 代表性補全結果
 
-![qual_coin_x_chest_cov70](../assets/results/paired/qual_coin_x_chest_cov70.png)
+### 寶箱補全｜高遮擋案例
 
-### qual_emblem_x_banner_cov50
+![寶箱補全｜高遮擋案例](../assets/results/paired/qual_coin_x_chest_cov70.png)
 
-![qual_emblem_x_banner_cov50](../assets/results/paired/qual_emblem_x_banner_cov50.png)
+兩種設定都移除了硬幣，但鎖扣的形狀、顏色與位置仍可能偏離目標。第 2 列加入 NoiseMask 後的 LPIPS 較低，第 1、3 列則未較低；這張代表圖不能當成所有樣本都改善。
 
-### qual_food_x_plate_cov70
+### 旗幟補全｜移除徽章後的布面
 
-![qual_food_x_plate_cov70](../assets/results/paired/qual_food_x_plate_cov70.png)
+![旗幟補全｜移除徽章後的布面](../assets/results/paired/qual_emblem_x_banner_cov50.png)
 
-### qual_gem_x_ring_cov30
+兩種設定都補出布面，主要差異在摺痕與明暗，整體視覺差異有限。自動分數的小幅差距仍需搭配布料細節檢視。
 
-![qual_gem_x_ring_cov30](../assets/results/paired/qual_gem_x_ring_cov30.png)
+### 餐盤補全｜輪廓與高光
 
-### qual_hammer_x_anvil_cov30
+![餐盤補全｜輪廓與高光](../assets/results/paired/qual_food_x_plate_cov70.png)
 
-![qual_hammer_x_anvil_cov30](../assets/results/paired/qual_hammer_x_anvil_cov30.png)
+食物被移除後，盤面輪廓大致形成，但盤緣與內圈的高光、厚度仍有差異。第 3 列顯示兩設定的圖上 LPIPS 同為 0.018。
 
-### qual_key_x_lock_cov50
+### 戒指補全｜圓環幾何
 
-![qual_key_x_lock_cov50](../assets/results/paired/qual_key_x_lock_cov50.png)
+![戒指補全｜圓環幾何](../assets/results/paired/qual_gem_x_ring_cov30.png)
 
-### qual_pen_x_book_cov30
+兩種設定都生成無寶石的圓環；第 3 列的輪廓仍偏離目標的規則圓形。低分數差異與幾何是否正確需分開看。
 
-![qual_pen_x_book_cov30](../assets/results/paired/qual_pen_x_book_cov30.png)
+### 鐵砧補全｜細小邊緣與底座
 
-### qual_potion_x_crate_cov50
+![鐵砧補全｜細小邊緣與底座](../assets/results/paired/qual_hammer_x_anvil_cov30.png)
 
-![qual_potion_x_crate_cov50](../assets/results/paired/qual_potion_x_crate_cov50.png)
+錘子被移除後，兩種設定的鐵砧形狀接近；差異集中於表面明暗與底座細節。第 3 列圖上分數相同，不將每列描述為改善。
 
-### qual_sword_x_shield_cov30
+### 鎖頭補全｜遺失的鑰匙孔
 
-![qual_sword_x_shield_cov30](../assets/results/paired/qual_sword_x_shield_cov30.png)
+![鎖頭補全｜遺失的鑰匙孔](../assets/results/paired/qual_key_x_lock_cov50.png)
 
-## All-seed failure / variation evidence
+兩種設定都移除了鑰匙，卻沒有補回目標的鑰匙孔。這是『前景消失，但指定部件細節未還原』的明確例子。
 
-下面保留原始所有 seeds，需區分前景殘留、補全錯誤、幻覺與 preservation damage；這些 failure 類型不能合併成單一品質原因。
+### 書本補全｜保留封面與書脊
 
-### attentive_eraser_visible_mask_0pct_coin_x_chest_cov70
+![書本補全｜保留封面與書脊](../assets/results/paired/qual_pen_x_book_cov30.png)
 
-![attentive_eraser_visible_mask_0pct_coin_x_chest_cov70](../assets/results/all_seeds/attentive_eraser_visible_mask_0pct_coin_x_chest_cov70.png)
+第 1 列 NoiseMask 結果的書脊與封面輪廓較接近目標，但第 2 列 baseline 的圖上 LPIPS 較低。不同樣本的收益並不一致。
 
-### flux2_prompt_gem_x_ring_cov30
+### 木箱補全｜移除藥水瓶
 
-![flux2_prompt_gem_x_ring_cov30](../assets/results/all_seeds/flux2_prompt_gem_x_ring_cov30.png)
+![木箱補全｜移除藥水瓶](../assets/results/paired/qual_potion_x_crate_cov50.png)
 
-### qwen2511_class_word_prompt_v2_lab_noise_mask_oracle_3pct_coin_x_chest_cov70
+兩種設定都移除了瓶子並延續木板結構，主要差異在木紋與陰影。整體視覺差異有限，仍需檢查原有板條是否被改寫。
 
-![qwen2511_class_word_prompt_v2_lab_noise_mask_oracle_3pct_coin_x_chest_cov70](../assets/results/all_seeds/qwen2511_class_word_prompt_v2_lab_noise_mask_oracle_3pct_coin_x_chest_cov70.png)
+### 盾牌補全｜中央結構保持
+
+![盾牌補全｜中央結構保持](../assets/results/paired/qual_sword_x_shield_cov30.png)
+
+移除劍之後，兩種設定保留盾牌主體；中央稜線與明暗可能改變。第 3 列 baseline 的圖上 LPIPS 略低，保留這種變化。
+
+[完整配對數表](../assets/results/paired/table.md)保留每類聚合；圖上個別 seed 分數與全 seed 聚合回答不同問題。
+
+## 典型失敗案例與完整 seed 變化
+
+以下三張圖皆保留 seeds 0–4。分類依畫面可直接觀察的現象，未推定模型內部原因，也沒有把視覺觀察換算成人工通過率。
+
+<a id="foreground-residue"></a>
+
+### 前景殘留｜FLUX.2 寶石與戒指
+
+![FLUX.2 prompt-only：寶石未移除，所有 seeds](../assets/results/all_seeds/flux2_prompt_gem_x_ring_cov30.png)
+
+目標是只有圓環的戒指，但多個輸出仍保留大面積寶石；第 1 列 seed 1 甚至只剩放大的寶石。這是前景未移除，不能因結果像一枚合理的寶石戒指就視為任務完成。
+
+### 補全不完整｜Attentive Eraser 寶箱案例
+
+![Attentive Eraser visible mask 0%：寶箱中央未補回，所有 seeds](../assets/results/all_seeds/attentive_eraser_visible_mask_0pct_coin_x_chest_cov70.png)
+
+硬幣所在區域變成黑色缺口，周圍仍可見寶箱框架，但中央箱體沒有還原。這和上例的前景殘留是不同問題：移除可以發生，補全仍可能不足。[Attention 研究判讀](experiments/04_attention_control.md)
+
+### 部件細節漂移與多餘符號｜Qwen + NoiseMask 寶箱案例
+
+![Qwen Prompt V2 + NoiseMask 3%：鎖扣細節與 seed 變化](../assets/results/all_seeds/qwen2511_class_word_prompt_v2_lab_noise_mask_oracle_3pct_coin_x_chest_cov70.png)
+
+箱體大致形成，但不同 seeds 改寫了鎖扣樣式與金屬結構。第 2 列 seed 4 在鎖扣位置出現目標沒有的美元符號，可標為多餘內容；符號是否由前景硬幣資訊帶入，仍需另外驗證。
+
+### 如何看非編輯區域
+
+補全之外，也要對照仍可見的外框、表面與位置。現有配對圖經 object-centric normalization，可能淡化位移；本頁不據此把每處差異都判成非編輯區域破壞。判定 Region Damage 需回到 full-canvas 與實際編輯範圍，見 [評估方法](evaluation.md)。
+
+## 多階段補全
+
+[兩階段 Synthetic V3 結果](experiments/08_evaluation.md)展示使用上一階段實際輸出繼續移除的流程，並保留 Stage 1／Stage 2 圖與完整比較表。上層遮住下層瑕疵時，重建圖可能顯得完整，因此仍要檢視各層。
+
+[返回研究時間軸](experiments/00_research_timeline.md) · [返回 README](../README.md)

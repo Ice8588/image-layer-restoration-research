@@ -1,4 +1,4 @@
-# 評估契約與 benchmark 效度
+# 評估方法與 Benchmark 效度
 
 研究目標是恢復特定後景部件的 identity、appearance、geometry、position 與 style consistency；不是任意看似合理的背景。
 
@@ -38,7 +38,7 @@ Parameter、prompt、strength、step-window 或 seed search 是校準與消融�
 
 ## Private Industry Dataset
 
-企業合作資料僅納入經篩選的 [aggregate quantitative results](industry_aggregate_results.md)。原圖、result image、mask、crop、個別 case、內部 metadata 與合作企業名稱均不公開。可能由小群組、互補統計或外部資訊反推出個例的數字，保留在私有 manual review。
+企業合作資料僅納入經篩選的 [aggregate quantitative results](industry_aggregate_results.md)。原圖、result image、mask、crop、個別 case、內部 metadata 與合作企業名稱均不公開。可能由小群組、互補統計或外部資訊反推出個例的數字，不納入公開統計。
 
 ## README Figure Reading Note
 

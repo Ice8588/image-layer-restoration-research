@@ -1,42 +1,34 @@
-# Matched structure reference
+# Structure Guidance：可見幾何能否引導遮擋補全？
 
-| 維度 | 狀態 |
-|---|---|
-| Execution Status | Implemented; formal Not Run in audited evidence |
-| Evidence Status | CPU geometry viability only |
-| Conclusion | Inconclusive |
-| Adoption Status | Experimental |
+## 研究動機
 
-## 問題與 Hypothesis
+僅靠文字可能生成「合理但不是原本那個」部件。RQ2 嘗試從仍可見的幾何延伸出結構 guide，希望為被遮擋部位提供更具體的形狀資訊。
 
-測試可見幾何延伸成 guide 後，是否提供比 neutral reference 更多的特定部件結構資訊。 Hypothesis 是研究問題，不是已證明結論。
+## 實驗設計
 
-## 方法與 baseline
+比較 structure reference 與 matched neutral reference，先固定比較方式，再檢查可見幾何能否穩定轉成 guide。將兩個問題分開處理：
 
-RQ2 structure vs matched neutral reference；先進行 frozen geometry applicability。
+1. **幾何可行性**：輸入 visible geometry 與區域條件，產生 deterministic guide。
+2. **補全品質**：同條件下比較 structure 與 neutral reference 的實際生成圖像，再由人工判讀。
 
-## 變因與資料
+研究資料範圍涵蓋合成資料與企業合作資料；企業個例及中間產物不公開。幾何測試的輸出是 guide，尚不是補全圖像或 RGBA 圖層。
 
-已凍結比較契約；geometry proposal 與生成品質分別驗證。
+## 結果
 
-資料性質：Synthetic Benchmark；部分研究另使用 Private Industry Dataset（僅公開經篩選的 aggregate quantitative results，個例與 metadata 不公開）。
+Guide 建構已完成實作，CPU geometry viability 檢查通過。正式配對品質實驗尚未執行，現有紀錄為 `quality_assessed=false`，沒有配對的正式生成圖像與完整人工評估紀錄。
 
-Input／output：輸入 visible geometry 與區域條件；目前驗證輸出為 deterministic guide，未驗證完整補全圖像。
+因此，**尚未得到足以形成正式品質結論的結果**。本頁沒有可呈現為補全收益的量化表或生成比較圖。
 
-## Evaluation 與 Observation
+## 判讀
 
-現有 audit 記錄 guide viability 通過，但 quality_assessed=false；沒有 paired formal pixels 與完整 operator rows。
+結論維持 **Inconclusive**，方法維持 **Experimental**。目前能說明的是幾何 guide 可以建構；是否比 neutral reference 更有助於恢復特定部件，仍需品質實驗回答。未執行的比較也不能列成負結果。
 
-Automatic metrics、qualitative inspection、human QA、operator QA 分別記錄；[評估契約](../evaluation.md)說明各層級。
+## 對後續研究的影響
 
-## 解釋、採用與限制
+保留 matched neutral reference 作為後續對照，先完成配對生成與人工判讀，再考慮是否納入主要流程。這個分支使研究更明確地區分「產生了結構資訊」與「結構資訊對補全有用」。
 
-能產生 guide 不等於 guide 有效；未執行的品質比較既不是成功，也不是負結果。
+## 詳細證據
 
-Verified Cause：本頁未額外提出已驗證機制原因。跨協定結果為 **Not directly comparable**。
+本頁提供研究設計與既有幾何驗證的摘要，完整原始紀錄未公開。外部讀者目前無法重做本分支的配對品質驗證。
 
-## 可閱覽證據
-
-本頁為經去識別化的研究紀錄摘要；完整原始 audit 留在非公開工作區。缺失證據不以敘事補齊。
-
-[返回實驗索引](00_research_timeline.md)
+[評估方法與效度](../evaluation.md) · [目前研究理解](../research_summary.md) · [返回研究時間軸](00_research_timeline.md)
