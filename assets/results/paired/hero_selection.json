@@ -1,0 +1,298 @@
+{
+  "scope": "Synthetic V2 object-centric metrics",
+  "rows": [
+    {
+      "sample_id": "pen_x_book_cov30_1",
+      "seed": 0,
+      "metrics": {
+        "qwen2511_class_word_prompt_v2_oracle": {
+          "lpips": 0.3837547302246094,
+          "psnr": 13.59786663600703,
+          "ssim": 0.5862213470386572
+        },
+        "qwen2511_class_word_prompt_v2_lab_noise_mask_oracle_3pct": {
+          "lpips": 0.02657974697649479,
+          "psnr": 26.47031830243052,
+          "ssim": 0.9134835324912688
+        }
+      },
+      "selection": "large matched LPIPS difference and visible baseline error; not median-seed or average performance"
+    },
+    {
+      "sample_id": "gem_x_ring_cov30_1",
+      "seed": 0,
+      "metrics": {
+        "qwen2511_class_word_prompt_v2_oracle": {
+          "lpips": 0.31443220376968384,
+          "psnr": 8.570875863384018,
+          "ssim": 0.520573234907202
+        },
+        "qwen2511_class_word_prompt_v2_lab_noise_mask_oracle_3pct": {
+          "lpips": 0.016534002497792244,
+          "psnr": 22.190250092540897,
+          "ssim": 0.8964800482088476
+        }
+      },
+      "selection": "large matched LPIPS difference and visible baseline error; not median-seed or average performance"
+    },
+    {
+      "sample_id": "pen_x_book_cov30_0",
+      "seed": 0,
+      "metrics": {
+        "qwen2511_class_word_prompt_v2_oracle": {
+          "lpips": 0.26991066336631775,
+          "psnr": 16.592441548510322,
+          "ssim": 0.7238360066938174
+        },
+        "qwen2511_class_word_prompt_v2_lab_noise_mask_oracle_3pct": {
+          "lpips": 0.030382297933101654,
+          "psnr": 30.633579437375495,
+          "ssim": 0.9704126348165304
+        }
+      },
+      "selection": "large matched LPIPS difference and visible baseline error; not median-seed or average performance"
+    }
+  ],
+  "tiles": [
+    {
+      "source": "assets/results/all_seeds/qwen2511_class_word_prompt_v2_oracle_pen_x_book_cov30.png",
+      "source_box": [
+        52,
+        406,
+        292,
+        646
+      ],
+      "destination_box": [
+        56,
+        160,
+        296,
+        400
+      ],
+      "pixel_sha256": "b6fe39172fdc91e41ac5f4c37e1f750c81a228c2e55a959c871bd5da88aba9a2"
+    },
+    {
+      "source": "assets/results/all_seeds/qwen2511_class_word_prompt_v2_lab_noise_mask_oracle_3pct_pen_x_book_cov30.png",
+      "source_box": [
+        304,
+        406,
+        544,
+        646
+      ],
+      "destination_box": [
+        368,
+        160,
+        608,
+        400
+      ],
+      "pixel_sha256": "ab5cff33f69cfb8e1b55a3a036b8f10cac2765de5eb49ff9fa7b7e0cd724aa8b"
+    },
+    {
+      "source": "assets/results/all_seeds/qwen2511_class_word_prompt_v2_oracle_pen_x_book_cov30.png",
+      "source_box": [
+        600,
+        406,
+        840,
+        646
+      ],
+      "destination_box": [
+        680,
+        160,
+        920,
+        400
+      ],
+      "pixel_sha256": "1117fdf5992e78fce55ae697d96cab2216723174220287c948d47533cd505c2d"
+    },
+    {
+      "source": "assets/results/all_seeds/qwen2511_class_word_prompt_v2_lab_noise_mask_oracle_3pct_pen_x_book_cov30.png",
+      "source_box": [
+        852,
+        406,
+        1092,
+        646
+      ],
+      "destination_box": [
+        992,
+        160,
+        1232,
+        400
+      ],
+      "pixel_sha256": "e276a3d1b6ba90169bf068ee87c6eabc5e3a49c06b21fcc06afd2174d6e64fda"
+    },
+    {
+      "source": "assets/results/all_seeds/qwen2511_class_word_prompt_v2_oracle_pen_x_book_cov30.png",
+      "source_box": [
+        326,
+        406,
+        566,
+        646
+      ],
+      "destination_box": [
+        1304,
+        160,
+        1544,
+        400
+      ],
+      "pixel_sha256": "982b3e622ef588cf7d7ae3ccc4b937904c90f3dc1065063f0d5d65ef903243d9"
+    },
+    {
+      "source": "assets/results/all_seeds/qwen2511_class_word_prompt_v2_oracle_gem_x_ring_cov30.png",
+      "source_box": [
+        52,
+        406,
+        292,
+        646
+      ],
+      "destination_box": [
+        56,
+        440,
+        296,
+        680
+      ],
+      "pixel_sha256": "5314acba877246d0074fd585f3dd23f439bc70c386439948660a6e5d2a267990"
+    },
+    {
+      "source": "assets/results/all_seeds/qwen2511_class_word_prompt_v2_lab_noise_mask_oracle_3pct_gem_x_ring_cov30.png",
+      "source_box": [
+        304,
+        406,
+        544,
+        646
+      ],
+      "destination_box": [
+        368,
+        440,
+        608,
+        680
+      ],
+      "pixel_sha256": "af566bd749c7055b4606befdb12ee02dde056b1af045db0cf1009615fb7de64c"
+    },
+    {
+      "source": "assets/results/all_seeds/qwen2511_class_word_prompt_v2_oracle_gem_x_ring_cov30.png",
+      "source_box": [
+        600,
+        406,
+        840,
+        646
+      ],
+      "destination_box": [
+        680,
+        440,
+        920,
+        680
+      ],
+      "pixel_sha256": "3616085b3da2289802fe82704c0bcce720b047d643bae6cd9d5b9afe75ed5b47"
+    },
+    {
+      "source": "assets/results/all_seeds/qwen2511_class_word_prompt_v2_lab_noise_mask_oracle_3pct_gem_x_ring_cov30.png",
+      "source_box": [
+        852,
+        406,
+        1092,
+        646
+      ],
+      "destination_box": [
+        992,
+        440,
+        1232,
+        680
+      ],
+      "pixel_sha256": "bfc69ced986e04991d5001868044263290f76a7e53ac7feb04ac0b93f01b0e01"
+    },
+    {
+      "source": "assets/results/all_seeds/qwen2511_class_word_prompt_v2_oracle_gem_x_ring_cov30.png",
+      "source_box": [
+        326,
+        406,
+        566,
+        646
+      ],
+      "destination_box": [
+        1304,
+        440,
+        1544,
+        680
+      ],
+      "pixel_sha256": "15c3cb726fb31a035cf2b3a0cc7b33f7a3b10d21776c7fd612a8d1868cfaa50c"
+    },
+    {
+      "source": "assets/results/all_seeds/qwen2511_class_word_prompt_v2_oracle_pen_x_book_cov30.png",
+      "source_box": [
+        52,
+        128,
+        292,
+        368
+      ],
+      "destination_box": [
+        56,
+        720,
+        296,
+        960
+      ],
+      "pixel_sha256": "40a402dc6414eb53005ddd8006a3d972d5168d81d3d4a21a4f67a58a0832cf41"
+    },
+    {
+      "source": "assets/results/all_seeds/qwen2511_class_word_prompt_v2_lab_noise_mask_oracle_3pct_pen_x_book_cov30.png",
+      "source_box": [
+        304,
+        128,
+        544,
+        368
+      ],
+      "destination_box": [
+        368,
+        720,
+        608,
+        960
+      ],
+      "pixel_sha256": "c845fa2408938c112ebda3b043ca8aa9985c1aeacf479ad3ace02a7da41a6c7d"
+    },
+    {
+      "source": "assets/results/all_seeds/qwen2511_class_word_prompt_v2_oracle_pen_x_book_cov30.png",
+      "source_box": [
+        600,
+        128,
+        840,
+        368
+      ],
+      "destination_box": [
+        680,
+        720,
+        920,
+        960
+      ],
+      "pixel_sha256": "b6c1ea08866b4029ad1c5aa166e15aebc275e8ba56ea5d91d9f40022a0c2e416"
+    },
+    {
+      "source": "assets/results/all_seeds/qwen2511_class_word_prompt_v2_lab_noise_mask_oracle_3pct_pen_x_book_cov30.png",
+      "source_box": [
+        852,
+        128,
+        1092,
+        368
+      ],
+      "destination_box": [
+        992,
+        720,
+        1232,
+        960
+      ],
+      "pixel_sha256": "127cc827ad0e72c6b4bd04c39a06f24be7afc6449951028ea4864dac1cdeb003"
+    },
+    {
+      "source": "assets/results/all_seeds/qwen2511_class_word_prompt_v2_oracle_pen_x_book_cov30.png",
+      "source_box": [
+        326,
+        128,
+        566,
+        368
+      ],
+      "destination_box": [
+        1304,
+        720,
+        1544,
+        960
+      ],
+      "pixel_sha256": "214f367ada401345d934ef78c678a7bfbb190ea8c6ebc0d041cba3b2467c4c3d"
+    }
+  ]
+}

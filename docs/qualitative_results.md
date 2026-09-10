@@ -2,7 +2,46 @@
 
 本頁用原有圖像回答三個問題：前景有沒有消失、指定後景有沒有補對、其他區域有沒有保持。配對圖涵蓋九類合成案例，失敗區與完整 seed 變化一併保留。
 
-配對圖左起為 **輸入 → 合成目標 → Qwen Prompt V2 → 同提示詞 + NoiseMask 3%**。沿用原分析的 median-LPIPS seed 規則，沒有改選結果；這些代表圖不是人工通過清單。輸入使用已知類別與遮罩，輸出為 RGB surrogate，詳見 [評估方法與圖像限制](evaluation.md#readme-figure-reading-note)。
+原有九類配對圖左起為 **輸入 → 合成目標 → Qwen Prompt V2 → 同提示詞 + NoiseMask 3%**，沿用原分析的 median-LPIPS seed 規則。新增首圖則選取高差距改善案例，兩種選取方式分開呈現。輸入使用已知類別與遮罩，輸出為 RGB surrogate，詳見 [評估方法與圖像限制](evaluation.md#readme-figure-reading-note)。
+
+<a id="selected-improvements"></a>
+
+## 從編輯失敗到改善：精選配對案例
+
+![同一 sample、同一 seed 的書本與戒指改善案例](../assets/results/paired/hero_failure_improvement.png)
+
+在相同輸入與 seed 下，baseline 移除了前景，卻將書本改成不同視角，或為戒指增加目標沒有的凸起；NoiseMask 結果較接近原有部件的結構。這展示的是部件保持與補全的改善，不只是前景消失。
+
+| 圖中案例 | Synthetic sample | Seed | Baseline LPIPS ↓ | NoiseMask LPIPS ↓ | 可見差異 |
+|---|---|---:|---:|---:|---|
+| Book A | pen_x_book_cov30_1 | 0 | 0.384 | 0.027 | Baseline 改變書本視角與書頁方向；NoiseMask 保留較接近目標的封面與書脊 |
+| Ring | gem_x_ring_cov30_1 | 0 | 0.314 | 0.017 | Baseline 生成多餘的上方凸起；NoiseMask 恢復接近目標的圓環 |
+| Book B | pen_x_book_cov30_0 | 0 | 0.270 | 0.030 | Baseline 改變書本立體結構；NoiseMask 保留較接近目標的輪廓與書頁方向 |
+
+先按既有 135 組 matched pairs 的 LPIPS 差值尋找案例，再檢視可見錯誤；目前呈現差值最大的三組，全部為 seed 0。數字取自既有 [scores.csv](../assets/results/synthetic_v2/scores.csv)，未重新計分。這些精選案例用來說明方法可以改善的失敗情形；整體效果仍以 [完整配對數表](../assets/results/paired/table.md)為準，人工評估狀態不變。
+
+<details>
+<summary>查看這兩類素材的全部 seed，包括未改善與失敗結果</summary>
+
+### 書本｜Baseline，全部 seeds
+
+![書本 Prompt V2 全部 seeds](../assets/results/all_seeds/qwen2511_class_word_prompt_v2_oracle_pen_x_book_cov30.png)
+
+### 書本｜NoiseMask，全部 seeds
+
+![書本 Prompt V2 加入 NoiseMask 全部 seeds](../assets/results/all_seeds/qwen2511_class_word_prompt_v2_lab_noise_mask_oracle_3pct_pen_x_book_cov30.png)
+
+### 戒指｜Baseline，全部 seeds
+
+![戒指 Prompt V2 全部 seeds](../assets/results/all_seeds/qwen2511_class_word_prompt_v2_oracle_gem_x_ring_cov30.png)
+
+### 戒指｜NoiseMask，全部 seeds
+
+![戒指 Prompt V2 加入 NoiseMask 全部 seeds](../assets/results/all_seeds/qwen2511_class_word_prompt_v2_lab_noise_mask_oracle_3pct_gem_x_ring_cov30.png)
+
+NoiseMask 的部分戒指 seeds 仍有缺口或形狀變化，因此精選改善案例不能換算為所有 seeds 的成功率。
+
+</details>
 
 ## 代表性補全結果
 

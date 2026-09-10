@@ -6,9 +6,9 @@ Foreground Removal and Amodal Completion for Non-Photorealistic 2D Graphics
 
 我以 FLUX／Qwen Image Edit 建立 baseline，比較提示詞、區域與生成過程控制，再用配對實驗、失敗案例與 VLM QA 檢查效果；生成側成果整合至團隊的 Layer Lab。
 
-<img src="assets/results/paired/hero_coin_x_chest.png" alt="三個寶箱案例：Input → Remove foreground（編輯遮罩）→ Baseline → NoiseMask → Target" width="960">
+<img src="assets/results/paired/hero_failure_improvement.png" alt="書本與戒指改善案例：Input → Remove foreground（編輯遮罩）→ Baseline → NoiseMask → Target" width="960">
 
-*左起為輸入、移除範圍遮罩、Baseline、NoiseMask 與目標。Baseline 與 NoiseMask 是同一輸入的兩個比較設定；硬幣雖可移除，鎖扣細節仍可能偏離目標。[圖像選取與評估限制](docs/evaluation.md#readme-figure-reading-note) · [更多結果與失敗案例](docs/qualitative_results.md)*
+*同一輸入、同一 seed 的精選改善案例：Baseline 改變書本視角或生成多餘戒指結構；加入 NoiseMask 後，結果更接近目標。LPIPS 越低越好；這些案例展示可改善的失敗情形，整體表現見下方配對數表。[選取方式與完整 seed 比較](docs/qualitative_results.md#selected-improvements)*
 
 ## Layer Lab Demo
 
