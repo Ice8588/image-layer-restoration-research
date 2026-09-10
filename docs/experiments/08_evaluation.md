@@ -37,7 +37,7 @@ V2 的 [Prompt V2／NoiseMask 配對結果](03_noise_mask.md)已有完整自動�
 
 ## 判讀
 
-多階段補全與 steps 的整體品質結論維持 **Inconclusive**。V3 歷史 Stage 2 人工評估仍不完整；確認 Stage 2 使用正確的上階段輸出，只證明資料銜接，尚未回答每層是否可用。
+多階段補全與 steps 的整體品質結論維持 **Inconclusive**。目前已確認 V3 Stage 2 的資料銜接正確；逐層補全品質仍待人工評估。
 
 這些結果仍以 RGB surrogate 評估。上層可能遮住下層缺陷，完整重建圖不能取代獨立部件檢視；V2 的 ROI normalization 也可能淡化位置偏移。合成資料收益不能直接推論真實美術效果。
 

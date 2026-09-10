@@ -19,21 +19,21 @@
 
 ## KV-Edit 的重要邊界
 
-官方 FLUX.1 執行核心與 FLUX.2 experimental port 使用不同模型基礎與執行核心。不同 inversion／denoising steps、guidance 和移除 prompt 不能寫成 equal-setting comparison。早期 smoke 曾出現區域內彩色碎點，屬於已觀察現象；不能只憑該現象宣稱是 prompt 或 attention 的已驗證失敗原因。
+官方 FLUX.1 執行核心與 FLUX.2 experimental port 使用不同模型基礎與執行核心。兩者的 inversion／denoising steps、guidance 和移除 prompt 不同，不構成 equal-setting comparison。早期 smoke 曾出現區域內彩色碎點，目前尚無證據將碎點歸因於 prompt 或 attention。
 
 ## 停止的矩陣
 
-早期 NoiseMask／prompt parent 規劃 12 arms × 135，已完成的 predictions 為 1407/1620；其中 generic 10% 為 57/135，generic 20% 為 0 且跳過。單一 class-word NoiseMask 3% arm 的 operator QA 為 112/135 pass、23/135 fail，僅支持這個歷史 arm；它不同於後來 Prompt V2 matched pair，不能混用分母或抹去 parent incomplete。
+早期 NoiseMask／prompt parent 規劃 12 arms × 135，已完成的 predictions 為 1407/1620；其中 generic 10% 為 57/135，generic 20% 為 0 且跳過。單一 class-word NoiseMask 3% arm 的 operator QA 為 112/135 pass、23/135 fail，僅支持這個歷史 arm；它與後來 Prompt V2 matched pair 的分母不同，兩組結果分開判讀；parent matrix 仍為部分完成。
 
 ## 資料型態與 input／output
 
-早期 synthetic completion arms 以 composite／broken-layer RGB 搭配文字或 oracle guidance，輸出 RGB research surrogate。VLM capability 的輸出是判斷；Live2D 的輸出是 renderer states／semantic masks；Qwen public-input 的輸出是 predicted masks。這些都不能一律稱為 RGBA 完整層成果。
+早期 synthetic completion arms 以 composite／broken-layer RGB 搭配文字或 oracle guidance，輸出 RGB research surrogate。VLM capability 的輸出是判斷；Live2D 的輸出是 renderer states／semantic masks；Qwen public-input 的輸出是 predicted masks。這些輸出並非統一的 RGBA 完整層成果。
 
 [公開資料來源評估](../public_sources.md) · [返回時間軸](00_research_timeline.md)
 
 ## 公開素材的 Benchmark 探索
 
-Qwen-Image-Layered 探索使用 13 張官方 input PNG，其中 12 張進入 mask-authoring，形成 64 個 semantic removal units 與 76 張 visible ownership masks。這些研究衍生標註屬於 predicted masks；正式 layer GT 與 completion target 均為 0，人工判讀尚未完成。它們不是官方 training corpus、PSD 或 artist-authored hidden-region GT，研究狀態維持 Diagnostic Only／Experimental。[素材來源](../public_sources.md#qwen-image-layered)
+Qwen-Image-Layered 探索使用 13 張官方 input PNG，其中 12 張進入 mask-authoring，形成 64 個 semantic removal units 與 76 張 visible ownership masks。這些研究衍生標註屬於 predicted masks；尚未建立正式 layer GT 與 completion target，人工判讀尚未完成。它們不是官方 training corpus、PSD 或 artist-authored hidden-region GT，研究狀態維持 Diagnostic Only／Experimental。[素材來源](../public_sources.md#qwen-image-layered)
 
 Live2D 分支曾探索以 renderer、ownership 與 direct-reveal 建立部件級 benchmark；fixed-pose 與 semantic groups 仍待人工評估，尚未納入目前補全品質評估，保留為 Diagnostic Only／Experimental。
 

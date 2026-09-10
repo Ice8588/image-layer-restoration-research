@@ -50,7 +50,7 @@ Qwen Image Edit 2511 NoiseMask 固定輸入協定，每個設定 38 個 removal 
 
 ## Signed / extreme Flow scale — Diagnostic Only
 
-912 筆 metric rows 的探索性 pseudo-GT calibration，沒有預先定義正式採用標準，且尚待人工評估。下表為 treatment minus scale 0；先平均 sample 內 seeds，再平均來源群內 samples，最後各來源群等權。下表呈現全體 macro。
+此分析涵蓋 912 筆 metric rows，定位為探索性 pseudo-GT calibration，不用於正式採用決策，人工評估仍待完成。下表為 treatment minus scale 0；先平均 sample 內 seeds，再平均來源群內 samples，最後各來源群等權。下表呈現全體 macro。
 
 | Scale | LPIPS Δ ↓ | 95% CI | PSNR Δ dB ↑ | SSIM Δ ↑ |
 |---|---:|---|---:|---:|
@@ -64,6 +64,4 @@ Qwen Image Edit 2511 NoiseMask 固定輸入協定，每個設定 38 個 removal 
 
 上述代理指標供探索性診斷，實際美術可用性仍待人工確認。Step-window 在已測條件下的 Negative，以及尚缺配對品質證據的 FlowEdit transport Inconclusive，分別保留在 [完整 Flow 實驗頁](experiments/06_flow_editing.md)。
 
-## 資料公開範圍
-
-本頁僅公開 aggregate results；個例與可能反推個例的細分統計不公開。完整研究脈絡見 [研究時間軸](experiments/00_research_timeline.md)。
+完整研究脈絡見 [研究時間軸](experiments/00_research_timeline.md)。

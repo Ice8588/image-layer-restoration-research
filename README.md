@@ -8,7 +8,7 @@ Foreground Removal and Amodal Completion for Non-Photorealistic 2D Graphics
 
 <img src="assets/results/paired/hero_failure_improvement.png" alt="書本與戒指改善案例：Input → Remove foreground（編輯遮罩）→ Baseline → NoiseMask → Target" width="960">
 
-*同一輸入、同一 seed 的精選改善案例：Baseline 改變書本視角或生成多餘戒指結構；加入 NoiseMask 後，結果更接近目標。LPIPS 越低越好；整體表現見下方配對數表。[案例分析與完整 seed 比較](docs/qualitative_results.md#selected-improvements)*
+*同一輸入、同一 seed 的配對案例：Baseline 改變書本視角或生成多餘戒指結構；加入 NoiseMask 後，結果更接近目標。LPIPS 越低越好；整體表現見下方配對數表。[案例分析與完整 seed 比較](docs/qualitative_results.md#selected-improvements)*
 
 ## Layer Lab Demo
 

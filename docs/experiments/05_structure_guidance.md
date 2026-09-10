@@ -17,8 +17,6 @@
 
 Guide 建構與 CPU geometry viability 已完成；正式配對品質實驗尚待執行。
 
-目前完成幾何可行性驗證，**補全品質仍待正式配對實驗評估**。
-
 ## 判讀
 
 結論維持 **Inconclusive**，方法維持 **Experimental**。目前能說明的是幾何 guide 可以建構；是否比 neutral reference 更有助於恢復特定部件，仍需品質實驗回答。

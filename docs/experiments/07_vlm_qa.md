@@ -31,13 +31,13 @@ V7 的 strict stage pass 相對 V3 增加 7.0 percentage points，原報告近�
 
 **替換決策維持 Negative，選圖收益維持 Diagnostic Only。** V7 部分指標較好，但仍未解決關鍵誤判，不能僅憑選圖收益推論 QA 已可靠。
 
-Binary classification 排除 human-uncertain；VLM unavailable 另計，不能直接當成人工 fail。Classification accuracy 也不是生成可用率。V6 的 selector 數字來自 lowest-index automatic-pass simulation，與實際新一輪生成或重試效果不同；V4 遇同分可 abstain，且沒有預先設定的替換標準。
+Binary classification 排除 human-uncertain；VLM unavailable 另計，不能直接當成人工 fail。Classification accuracy 也不是生成可用率。V4／V6 的選圖協定見 [完整量化結果](../industry_aggregate_results.md)。
 
 ## 對後續研究的影響
 
 整合流程**保留 V3；V7 未採用**。後續 QA 需同時考慮錯誤辨識與候選挑選，而重試策略需要另驗證是否真的改善結果。
 
-產品操作允許使用者檢視帶有風險提示的候選；研究的人工品質判定仍獨立保留。早期 closed-loop 與 retry 矩陣中的人工評估缺口，見 [歷史分支](09_historical_branches.md)。
+產品操作允許使用者檢視帶有風險提示的候選；研究的人工品質判定仍獨立保留。早期 closed-loop 與 retry 探索見 [歷史分支](09_historical_branches.md)。
 
 ## 詳細證據
 

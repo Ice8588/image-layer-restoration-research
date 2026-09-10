@@ -34,7 +34,7 @@ flowchart TD
  U --> I[Inconclusive / human review]
 ```
 
-Parameter、prompt、strength、step-window 或 seed search 是校準與消融，不能單獨宣稱 novel algorithmic contribution。新方法須說明改變的計算、適用範圍、baseline 退化邊界與 component ablation。
+本研究將 parameter、prompt、strength、step-window 與 seed search 視為 calibration / ablation；方法層研究則另外以機制設計與 controlled comparison 評估。
 
 ## Private Industry Dataset
 

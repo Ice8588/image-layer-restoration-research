@@ -26,7 +26,7 @@ RQ1 FlowEdit transport 已完成實作，但缺完整配對生成與品質評估
 
 Step-window 的負結果只適用於已測條件，不能外推成所有 Flow 方法無效。Signed scale 是探索性校準：pseudo-GT 指標反映局部代理目標，尚不能判定特定後景部件是否真正還原。
 
-時間窗與 scale 搜尋可用於校準，但方法主張還需要清楚的公式、退化回 baseline 的邊界，以及 component ablation。RQ1 必須用自己的實驗回答有效性，不能沿用其他 Flow 分支的數字。
+時間窗與 scale 搜尋用於校準；後續 RQ1 將以獨立 matched comparison 與 component ablation 評估，與其他 Flow 分支分開判讀。
 
 ## 對後續研究的影響
 
