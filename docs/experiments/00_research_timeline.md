@@ -7,7 +7,7 @@
 | 6 月至 7 月初 | 定義特定部件 amodal completion；prompt／BBox baseline | 破損層單獨輸入並不足以保證 identity；輸入契約保持開放 |
 | 7 月 | Synth V2／V3、NoiseMask、KV-Edit、Attentive Eraser | 建立 automatic analysis；保留失敗、oracle 限制與 partial run |
 | 7 月至 8 月 | Attention screens、reference、VLM capability、chained QA | 多分支停止或無定論；未把複雜度視為進步 |
-| 8 月 | Naming／Completion QA、Legacy Research Prototype | 操作與評估需求形成可用介面；產品選擇與研究 gate 分離 |
+| 8 月 | Naming／Completion QA、補全操作介面 | 操作與評估需求形成可用介面；產品選擇與研究 gate 分離 |
 | 8 月下旬 | Flow pilot、RQ1／RQ2／RQ3、standalone migration | Flow 有 bounded negative；geometry viability 不證明補全品質 |
 | 8 月底至 9 月 | Frozen QA、steps 與 attention trace | Retain V3；新 trace 僅 diagnostic，pending QA 不升格 |
 

@@ -8,4 +8,6 @@ Flow step-window 的 bounded negative、attention screens 的 gate failure 與 R
 
 長期目標是可獨立使用的 RGBA 完整部件層。Synth V2 等歷史實驗輸出通常為黑底 RGB research surrogate；結構 viability 只輸出 guide，VLM QA 只輸出評估。Standalone 有部件輸出流程，但每層 alpha、identity 與可用性仍須獨立驗證。
 
-[研究與產品流程](system_evolution.md) · [評估契約](evaluation.md)
+Layer Lab 為 Pre-release Integrated Prototype。產品流程優先採用通過 QA 的候選；若沒有通過者，可保留 fail／uncertain warning 使用 best available，並由使用者檢視或重新生成。這項產品選擇不等於研究 quality gate passed，Demo 也不替代正式品質評估。
+
+[Layer Lab 操作展示](system_evolution.md) · [評估契約](evaluation.md)
