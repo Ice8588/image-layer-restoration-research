@@ -1,6 +1,6 @@
 # 企業合作資料 / Private Industry Dataset
 
-企業合作資料用來補充合成實驗，觀察 QA 選圖、推論步數與 Flow scale 在實際資料上的表現。本頁保留已核准的整體量化結果；原始圖像與逐筆標註不公開，因此外部讀者無法獨立重算。
+企業合作資料用來補充合成實驗，觀察 QA 選圖、推論步數與 Flow scale 在實際資料上的表現。基於合作資料保密限制，本頁僅呈現允許公開的 aggregate quantitative results。
 
 ## 主要觀察
 
@@ -34,7 +34,7 @@ First-round selector 的 strict stage pass 以所有 114 個 stage 為分母，a
 | V6 — simulated selector | 79.8% |
 | V7 | 86.8% |
 
-V7 相對 V3 為 +7.0 percentage points（原報告近似 95% CI：+2.3 至 +11.7）。但預先設定的關鍵負例檢查（sentinel admission）未通過，選圖收益仍僅作診斷；V6 selector 僅為 lowest-index automatic-pass simulation。V4 unique ordinal selection 遇 tie 可 abstain，且沒有預先設定的替換標準。**保留 V3；替換決策維持 Negative，選圖收益維持 Diagnostic Only。** 本比較沒有重跑 Naming 或生成，也不公開小型 sentinel／control subgroup 數字。
+V7 相對 V3 為 +7.0 percentage points（原報告近似 95% CI：+2.3 至 +11.7）。但預先設定的關鍵負例檢查（sentinel admission）未通過，選圖收益仍僅作診斷；V6 selector 僅為 lowest-index automatic-pass simulation。V4 unique ordinal selection 遇 tie 可 abstain，且沒有預先設定的替換標準。**保留 V3；替換決策維持 Negative，選圖收益維持 Diagnostic Only。** 比較固定相同生成候選，以隔離 QA 版本差異。
 
 ## Inference-step comparison — Inconclusive
 
@@ -50,7 +50,7 @@ Qwen Image Edit 2511 NoiseMask 固定輸入協定，每個設定 38 個 removal 
 
 ## Signed / extreme Flow scale — Diagnostic Only
 
-912 筆 metric rows 的探索性 pseudo-GT calibration，沒有預先定義正式採用標準，且尚待人工評估。下表為 treatment minus scale 0；先平均 sample 內 seeds，再平均來源群內 samples，最後各來源群等權。只保留全體 macro，不公開來源群數值或樣本勝負 records。
+912 筆 metric rows 的探索性 pseudo-GT calibration，沒有預先定義正式採用標準，且尚待人工評估。下表為 treatment minus scale 0；先平均 sample 內 seeds，再平均來源群內 samples，最後各來源群等權。下表呈現全體 macro。
 
 | Scale | LPIPS Δ ↓ | 95% CI | PSNR Δ dB ↑ | SSIM Δ ↑ |
 |---|---:|---|---:|---:|
@@ -64,8 +64,6 @@ Qwen Image Edit 2511 NoiseMask 固定輸入協定，每個設定 38 個 removal 
 
 上述代理指標供探索性診斷，實際美術可用性仍待人工確認。Step-window 在已測條件下的 Negative，以及尚缺配對品質證據的 FlowEdit transport Inconclusive，分別保留在 [完整 Flow 實驗頁](experiments/06_flow_editing.md)。
 
-## 公開範圍與可驗證性
+## 資料公開範圍
 
-小型 targeted pilots、sentinel／positive controls、可與其他表互補反推的小群組、含個例標籤的 tables，以及已知協定失效的歷史比較，未納入公開數值。小群組統計可能與其他資訊組合而辨識個例；已失效的協定則無法提供有效量化比較。完整實驗脈絡與負結果仍保留於 [研究時間軸](experiments/00_research_timeline.md)。
-
-原始圖像、生成圖、mask、crop、個別案例、內部 metadata、企業與人員名稱均不公開；也不提供逐筆 records、圖像 hash、來源時間線或可連回個例的分組鍵。
+本頁僅公開 aggregate results；個例與可能反推個例的細分統計不公開。完整研究脈絡見 [研究時間軸](experiments/00_research_timeline.md)。

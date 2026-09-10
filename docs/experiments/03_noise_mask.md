@@ -33,7 +33,7 @@ Prompt-based editing 能執行物件移除，但非編輯區域可能跟著改�
 
 Qwen class-word Prompt V2 + Lab NoiseMask 3% 保留為目前合成資料研究採用設定（**Current**）。Layer Lab 使用的通用移除提示詞另有操作需求，不能直接以這個 oracle 實驗取代系統設定。
 
-早期 NoiseMask follow-up parent matrix 僅部分執行，完整矩陣仍為未定論；單一設定的完成不補足其他停止或跳過的項目。[歷史分支](09_historical_branches.md)保留執行量、早期人工結果與其不同分母。
+早期設定與後續探索見 [歷史分支](09_historical_branches.md)。
 
 ## 詳細證據
 

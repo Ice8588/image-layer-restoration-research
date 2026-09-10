@@ -25,7 +25,7 @@ BBox 是畫在 composite RGB 上的視覺標記；另一組 GT visible-mask guid
 | Qwen 2511 + 綠框 1% | 0.080 | 26.01 | 0.885 |
 | Qwen 2511 + 綠框 2% | 0.098 | 25.53 | 0.867 |
 
-這裡的 Qwen baseline 是早期 class-word prompt，與後來的 Prompt V2 分開比較。數值摘自既有 summary，沒有重新計分。
+這裡的 Qwen baseline 是早期 class-word prompt，與後來的 Prompt V2 分開比較。
 
 ## 判讀
 

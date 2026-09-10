@@ -25,7 +25,7 @@
 | Reject detection | 34.9% | 71.4% |
 | Strict stage pass | 79.8% | 86.8% |
 
-V7 的 strict stage pass 相對 V3 增加 7.0 percentage points，原報告近似 95% CI 為 +2.3 至 +11.7。但關鍵負例檢查仍未通過，未滿足預先設定的替換條件。這次比較沒有重跑 Naming 或生成。
+V7 的 strict stage pass 相對 V3 增加 7.0 percentage points，原報告近似 95% CI 為 +2.3 至 +11.7。但關鍵負例檢查仍未通過，未滿足預先設定的替換條件。比較固定相同生成候選，以隔離 QA 版本差異。
 
 ## 判讀
 
@@ -43,6 +43,6 @@ Binary classification 排除 human-uncertain；VLM unavailable 另計，不能�
 
 [完整 V3–V7 數表、分母與 CI](../industry_aggregate_results.md) · [評估方法](../evaluation.md)
 
-企業原圖、逐筆人工標註與小型 sentinel subgroup 未公開，外部讀者只能核對公開表格，無法獨立重算此比較。
+基於合作資料保密限制，本頁僅公開 aggregate results。
 
 [返回研究時間軸](00_research_timeline.md)
