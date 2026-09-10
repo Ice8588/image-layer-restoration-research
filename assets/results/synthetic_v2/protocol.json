@@ -1,0 +1,345 @@
+{
+  "schema_version": "synth-layer-v2-method-comparison/2.0",
+  "analysis_status": "pending_human_qa",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "expected": {
+    "samples": 27,
+    "predictions": 4050
+  },
+  "roi": {
+    "foreground_threshold": 8,
+    "anchor_dilation_px": 32,
+    "area_ratio_range": [
+      0.25,
+      4.0
+    ],
+    "normalize_output_size": 256,
+    "normalize_padding_ratio": 0.05,
+    "normalize_min_padding": 8,
+    "normalize_max_padding": 64
+  },
+  "metrics": {
+    "lpips": {
+      "network": "alex",
+      "input": "normalized_rgb_256",
+      "lower_is_better": true
+    },
+    "ssim": {
+      "data_range": 255,
+      "channel_axis": 2,
+      "gaussian_weights": true,
+      "sigma": 1.5,
+      "use_sample_covariance": false
+    },
+    "psnr": {
+      "data_range": 255,
+      "higher_is_better": true
+    }
+  },
+  "aggregation": {
+    "seed_order": "seed_first_then_sample",
+    "overall": "class_macro",
+    "paired_difference": "left_minus_right",
+    "lpips_lower_is_better": true
+  },
+  "bootstrap": {
+    "iterations": 10000,
+    "seed": 20260711
+  },
+  "roi_fallback": {
+    "field": "scoring_mode",
+    "modes": [
+      "located",
+      "target_bbox_fallback"
+    ],
+    "rule": "when locate_prediction_b returns roi_status='roi_failure' (no_foreground_component, no_anchor_overlap, or implausible_area_ratio), the row is still scored: the target is normalized as usual via normalize_object_roi(target_rgb, b_amodal_mask), and the prediction is normalized with the same target-side mask via normalize_object_roi(pred_rgb, b_amodal_mask) instead of the (failed) located component mask. LPIPS/PSNR/SSIM are computed on that pair like any other row. The row keeps roi_status='roi_failure' and its reason for failure visibility; it is not excluded from any aggregate."
+  },
+  "package_versions": {
+    "python": "3.12.3",
+    "numpy": "2.5.0",
+    "scipy": "1.18.0",
+    "matplotlib": "3.11.0",
+    "scikit-image": "0.26.0",
+    "Pillow": "12.2.0",
+    "lpips": "0.1.4",
+    "platform": "Linux-6.17.0-22-generic-x86_64-with-glibc2.39"
+  },
+  "methods": [
+    {
+      "key": "flux2_prompt",
+      "label": "FLUX.2 prompt",
+      "model": "FLUX.2-dev",
+      "guidance": "prompt-only",
+      "prompt_protocol": "shared_removal_prompt",
+      "oracle": false,
+      "input_display": "composite"
+    },
+    {
+      "key": "flux2_bbox",
+      "label": "FLUX.2 green BBox",
+      "model": "FLUX.2-dev",
+      "guidance": "green-bbox",
+      "prompt_protocol": "shared_removal_prompt",
+      "oracle": false,
+      "input_display": "green_bbox"
+    },
+    {
+      "key": "qwen2508_prompt",
+      "label": "Qwen Image Edit 2508 prompt",
+      "model": "Qwen-Image-Edit-2508",
+      "guidance": "prompt-only",
+      "prompt_protocol": "shared_removal_prompt",
+      "oracle": false,
+      "input_display": "composite"
+    },
+    {
+      "key": "qwen2508_bbox",
+      "label": "Qwen Image Edit 2508 green BBox",
+      "model": "Qwen-Image-Edit-2508",
+      "guidance": "green-bbox",
+      "prompt_protocol": "shared_removal_prompt",
+      "oracle": false,
+      "input_display": "green_bbox"
+    },
+    {
+      "key": "qwen2511_prompt",
+      "label": "Qwen Image Edit 2511 prompt",
+      "model": "Qwen-Image-Edit-2511",
+      "guidance": "prompt-only",
+      "prompt_protocol": "shared_removal_prompt",
+      "oracle": false,
+      "input_display": "composite"
+    },
+    {
+      "key": "qwen2511_bbox",
+      "label": "Qwen Image Edit 2511 green BBox",
+      "model": "Qwen-Image-Edit-2511",
+      "guidance": "green-bbox",
+      "prompt_protocol": "shared_removal_prompt",
+      "oracle": false,
+      "input_display": "green_bbox"
+    },
+    {
+      "key": "flux2_class_word_prompt_oracle",
+      "label": "FLUX.2 class-word prompt (oracle)",
+      "model": "FLUX.2-dev",
+      "guidance": "prompt-only",
+      "prompt_protocol": "gt_class_word_prompt_oracle",
+      "oracle": true,
+      "input_display": "composite"
+    },
+    {
+      "key": "qwen2511_class_word_prompt_oracle",
+      "label": "Qwen Image Edit 2511 class-word prompt (oracle)",
+      "model": "Qwen-Image-Edit-2511",
+      "guidance": "prompt-only",
+      "prompt_protocol": "gt_class_word_prompt_oracle",
+      "oracle": true,
+      "input_display": "composite"
+    },
+    {
+      "key": "flux2_class_word_greenbbox_oracle",
+      "label": "FLUX.2 class-word green BBox 3 px (oracle)",
+      "model": "FLUX.2-dev",
+      "guidance": "green-bbox",
+      "prompt_protocol": "gt_class_word_greenbbox_oracle",
+      "oracle": true,
+      "input_display": "green_bbox"
+    },
+    {
+      "key": "flux2_class_word_greenbbox_oracle_1pct",
+      "label": "FLUX.2 class-word green BBox 1% (oracle)",
+      "model": "FLUX.2-dev",
+      "guidance": "green-bbox",
+      "prompt_protocol": "gt_class_word_greenbbox_oracle",
+      "oracle": true,
+      "input_display": "green_bbox"
+    },
+    {
+      "key": "flux2_class_word_greenbbox_oracle_2pct",
+      "label": "FLUX.2 class-word green BBox 2% (oracle)",
+      "model": "FLUX.2-dev",
+      "guidance": "green-bbox",
+      "prompt_protocol": "gt_class_word_greenbbox_oracle",
+      "oracle": true,
+      "input_display": "green_bbox"
+    },
+    {
+      "key": "qwen2511_class_word_greenbbox_oracle",
+      "label": "Qwen Image Edit 2511 class-word green BBox 3 px (oracle)",
+      "model": "Qwen-Image-Edit-2511",
+      "guidance": "green-bbox",
+      "prompt_protocol": "gt_class_word_greenbbox_oracle",
+      "oracle": true,
+      "input_display": "green_bbox"
+    },
+    {
+      "key": "qwen2511_class_word_greenbbox_oracle_1pct",
+      "label": "Qwen Image Edit 2511 class-word green BBox 1% (oracle)",
+      "model": "Qwen-Image-Edit-2511",
+      "guidance": "green-bbox",
+      "prompt_protocol": "gt_class_word_greenbbox_oracle",
+      "oracle": true,
+      "input_display": "green_bbox"
+    },
+    {
+      "key": "qwen2511_class_word_greenbbox_oracle_2pct",
+      "label": "Qwen Image Edit 2511 class-word green BBox 2% (oracle)",
+      "model": "Qwen-Image-Edit-2511",
+      "guidance": "green-bbox",
+      "prompt_protocol": "gt_class_word_greenbbox_oracle",
+      "oracle": true,
+      "input_display": "green_bbox"
+    },
+    {
+      "key": "flux2_class_word_noise_mask_oracle_0pct",
+      "label": "FLUX.2 class-word + noise mask 0% (oracle)",
+      "model": "FLUX.2-dev",
+      "guidance": "latent-noise-mask",
+      "prompt_protocol": "gt_class_word_noise_mask_oracle",
+      "oracle": true,
+      "input_display": "composite"
+    },
+    {
+      "key": "flux2_class_word_noise_mask_oracle_3pct",
+      "label": "FLUX.2 class-word + noise mask 3% (oracle)",
+      "model": "FLUX.2-dev",
+      "guidance": "latent-noise-mask",
+      "prompt_protocol": "gt_class_word_noise_mask_oracle",
+      "oracle": true,
+      "input_display": "composite"
+    },
+    {
+      "key": "flux2_class_word_noise_mask_oracle_10pct",
+      "label": "FLUX.2 class-word + noise mask 10% (oracle)",
+      "model": "FLUX.2-dev",
+      "guidance": "latent-noise-mask",
+      "prompt_protocol": "gt_class_word_noise_mask_oracle",
+      "oracle": true,
+      "input_display": "composite"
+    },
+    {
+      "key": "flux2_class_word_noise_mask_oracle_20pct",
+      "label": "FLUX.2 class-word + noise mask 20% (oracle)",
+      "model": "FLUX.2-dev",
+      "guidance": "latent-noise-mask",
+      "prompt_protocol": "gt_class_word_noise_mask_oracle",
+      "oracle": true,
+      "input_display": "composite"
+    },
+    {
+      "key": "qwen2511_class_word_noise_mask_oracle_0pct",
+      "label": "Qwen Image Edit 2511 class-word + noise mask 0% (oracle)",
+      "model": "Qwen-Image-Edit-2511",
+      "guidance": "latent-noise-mask",
+      "prompt_protocol": "gt_class_word_noise_mask_oracle",
+      "oracle": true,
+      "input_display": "composite"
+    },
+    {
+      "key": "qwen2511_class_word_noise_mask_oracle_3pct",
+      "label": "Qwen Image Edit 2511 class-word + noise mask 3% (oracle)",
+      "model": "Qwen-Image-Edit-2511",
+      "guidance": "latent-noise-mask",
+      "prompt_protocol": "gt_class_word_noise_mask_oracle",
+      "oracle": true,
+      "input_display": "composite"
+    },
+    {
+      "key": "qwen2511_class_word_noise_mask_oracle_10pct",
+      "label": "Qwen Image Edit 2511 class-word + noise mask 10% (oracle)",
+      "model": "Qwen-Image-Edit-2511",
+      "guidance": "latent-noise-mask",
+      "prompt_protocol": "gt_class_word_noise_mask_oracle",
+      "oracle": true,
+      "input_display": "composite"
+    },
+    {
+      "key": "qwen2511_class_word_noise_mask_oracle_20pct",
+      "label": "Qwen Image Edit 2511 class-word + noise mask 20% (oracle)",
+      "model": "Qwen-Image-Edit-2511",
+      "guidance": "latent-noise-mask",
+      "prompt_protocol": "gt_class_word_noise_mask_oracle",
+      "oracle": true,
+      "input_display": "composite"
+    },
+    {
+      "key": "qwen2511_generic_noise_mask_oracle_0pct",
+      "label": "Qwen Image Edit 2511 generic + noise mask 0% (oracle)",
+      "model": "Qwen-Image-Edit-2511",
+      "guidance": "latent-noise-mask",
+      "prompt_protocol": "generic_object_noise_mask_oracle",
+      "oracle": true,
+      "input_display": "composite"
+    },
+    {
+      "key": "qwen2511_generic_noise_mask_oracle_3pct",
+      "label": "Qwen Image Edit 2511 generic + noise mask 3% (oracle)",
+      "model": "Qwen-Image-Edit-2511",
+      "guidance": "latent-noise-mask",
+      "prompt_protocol": "generic_object_noise_mask_oracle",
+      "oracle": true,
+      "input_display": "composite"
+    },
+    {
+      "key": "attentive_eraser_visible_mask_0pct",
+      "label": "Attentive Eraser visible mask 0% (oracle)",
+      "model": "SDXL base 1.0",
+      "guidance": "visible-mask",
+      "prompt_protocol": "empty_prompt_mask_only",
+      "oracle": true,
+      "input_display": "composite"
+    },
+    {
+      "key": "attentive_eraser_visible_mask_3pct",
+      "label": "Attentive Eraser visible mask 3% (oracle)",
+      "model": "SDXL base 1.0",
+      "guidance": "visible-mask",
+      "prompt_protocol": "empty_prompt_mask_only",
+      "oracle": true,
+      "input_display": "composite"
+    },
+    {
+      "key": "attentive_eraser_visible_mask_10pct",
+      "label": "Attentive Eraser visible mask 10% (oracle)",
+      "model": "SDXL base 1.0",
+      "guidance": "visible-mask",
+      "prompt_protocol": "empty_prompt_mask_only",
+      "oracle": true,
+      "input_display": "composite"
+    },
+    {
+      "key": "attentive_eraser_visible_mask_20pct",
+      "label": "Attentive Eraser visible mask 20% (oracle)",
+      "model": "SDXL base 1.0",
+      "guidance": "visible-mask",
+      "prompt_protocol": "empty_prompt_mask_only",
+      "oracle": true,
+      "input_display": "composite"
+    },
+    {
+      "key": "qwen2511_class_word_prompt_v2_oracle",
+      "label": "Qwen Image Edit 2511 V2 class-word prompt (oracle)",
+      "model": "Qwen-Image-Edit-2511",
+      "guidance": "prompt-only",
+      "prompt_protocol": "gt_class_word_prompt_v2_oracle",
+      "oracle": true,
+      "input_display": "composite"
+    },
+    {
+      "key": "qwen2511_class_word_prompt_v2_lab_noise_mask_oracle_3pct",
+      "label": "Qwen Image Edit 2511 V2 class-word + Lab NoiseMask 3% (oracle)",
+      "model": "Qwen-Image-Edit-2511",
+      "guidance": "latent-noise-mask",
+      "prompt_protocol": "gt_class_word_prompt_v2_lab_noise_mask_oracle",
+      "oracle": true,
+      "input_display": "composite"
+    }
+  ]
+}

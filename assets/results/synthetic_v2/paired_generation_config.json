@@ -1,0 +1,58 @@
+[
+  {
+    "method": "qwen2511_class_word_prompt_v2_oracle",
+    "prompt_protocol": "gt_class_word_prompt_v2_oracle",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "source_image": "composite",
+    "mask_source": null,
+    "mask_is_oracle": false,
+    "mask_expand_ratio": null,
+    "backend": {
+      "model": "qwen-image-edit-2511",
+      "method": null,
+      "num_inference_steps": 40,
+      "guidance_scale": 4.0,
+      "mask_dilate_ratio": null
+    },
+    "resolved_request_example": {
+      "prompt": "Remove the front emblem. Reveal and complete the banner behind it with continuous and complete structure, matching the visible appearance and style. Apart from removing the emblem and completing what it covered, leave the rest of the image unchanged. Keep the surrounding canvas uniformly black.",
+      "num_inference_steps": 40,
+      "guidance_scale": 4.0,
+      "seed": 0
+    }
+  },
+  {
+    "method": "qwen2511_class_word_prompt_v2_lab_noise_mask_oracle_3pct",
+    "prompt_protocol": "gt_class_word_prompt_v2_lab_noise_mask_oracle",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "source_image": "composite",
+    "mask_source": "foregrounds[removal_target].visible_mask",
+    "mask_is_oracle": true,
+    "mask_expand_ratio": 0.03,
+    "backend": {
+      "model": "qwen-image-edit-2511",
+      "method": "qwen_noise_mask",
+      "num_inference_steps": 40,
+      "guidance_scale": 4.0,
+      "mask_dilate_ratio": 0.015
+    },
+    "resolved_request_example": {
+      "prompt": "Remove the front emblem. Reveal and complete the banner behind it with continuous and complete structure, matching the visible appearance and style. Apart from removing the emblem and completing what it covered, leave the rest of the image unchanged. Keep the surrounding canvas uniformly black.",
+      "num_inference_steps": 40,
+      "guidance_scale": 4.0,
+      "seed": 0
+    }
+  }
+]
