@@ -44,4 +44,6 @@ Parameter、prompt、strength、step-window 或 seed search 是校準與消融�
 
 README 首圖是黑底 RGB synthetic research surrogate，使用 oracle class words／mask；不是 RGBA 完整層驗收，也不證明 artist-authored artwork 的普遍補全能力。比較 Qwen Image Edit 2511 Prompt V2 與同提示詞 NoiseMask 3%，保留三個樣本，seed 依既有 median-LPIPS 規則選取，不是隨機挑圖或人工 pass。Median-seed 圖不能代表全 seed 成功率；[完整配對與 all-seed 失敗圖](qualitative_results.md)一併保留。
 
-首圖標示的 object-centric metrics 使用既有 ROI normalization，可能淡化位置 drift；須配合 full-canvas inspection。README 數值表則為 9-class macro。兩者不能當作逐張 operator 判定，也不可與 V3 reveal-region 或企業 direct-reveal 指標混排。Automatic metrics、人工 review 與實際 RGBA 可用性是不同證據。
+首圖依 Input → Remove foreground → Baseline → NoiseMask → Target 排列；Remove foreground 欄顯示既有 NoiseMask 3% 的編輯遮罩，並非另一個生成階段。Baseline 與 NoiseMask 是兩個比較設定，Target 是合成參考。三個樣本的完整圖像區塊從[原配對圖](../assets/results/paired/qual_coin_x_chest_cov70.png)與[原遮罩／all-seed 圖](../assets/results/all_seeds/qwen2511_class_word_prompt_v2_lab_noise_mask_oracle_3pct_coin_x_chest_cov70.png)重新排版，保留原像素與原 seed；原圖的分數標籤仍可在 Gallery 查閱。
+
+原分析的 object-centric metrics 使用既有 ROI normalization，可能淡化位置 drift；須配合 full-canvas inspection。README 數值表則為 9-class macro。兩者不能當作逐張 operator 判定，也不可與 V3 reveal-region 或企業 direct-reveal 指標混排。Automatic metrics、人工 review 與實際 RGBA 可用性是不同證據。
