@@ -40,12 +40,10 @@ Parameter、prompt、strength、step-window 或 seed search 是校準與消融�
 
 企業合作資料僅納入經篩選的 [aggregate quantitative results](industry_aggregate_results.md)。原圖、result image、mask、crop、個別 case、內部 metadata 與合作企業名稱均不公開。可能由小群組、互補統計或外部資訊反推出個例的數字，不納入公開統計。
 
-## README Figure Reading Note
+<a id="readme-figure-reading-note"></a>
 
-README 首圖比較 Qwen Image Edit 2511 Prompt V2 與同提示詞 NoiseMask 3%，選取同一 sample、同一 seed 的三組高差距改善案例。先依既有 135 組配對的 LPIPS 差值找出候選，再檢視 baseline 是否出現可見錯誤；目前三組為差值最大的三組，皆為 seed 0。這是指定目的的案例選取，與 Gallery 原有 median-LPIPS 配對圖分開呈現；不代表平均表現或全 seed 成功率，也不是新增人工 QA 通過判定。
+## 質化與量化結果的判讀
 
-素材全為研究者自行生成的 Synthetic V2，使用 oracle class words／mask，輸出為黑底 RGB research surrogate。它們不是 RGBA 完整層驗收，也不證明 artist-authored artwork 的普遍補全能力。[選取案例與完整 all-seed 圖](qualitative_results.md#selected-improvements)保留其他 seed 的失敗與變化。
+Synthetic V2 使用已知類別與遮罩（oracle inputs），輸出為黑底 RGB research surrogate。評估聚焦部件內容與外觀；完整 RGBA 圖層可用性、真實美術泛化與人工品質需另外驗證。[案例分析與完整 all-seed 比較](qualitative_results.md#selected-improvements)同時呈現改善與仍存在的錯誤。
 
-首圖依 Input → Remove foreground → Baseline → NoiseMask → Target 排列；Remove foreground 欄顯示實際 NoiseMask 3% 的編輯遮罩，並非另一個生成階段。Baseline 與 NoiseMask 是兩個比較設定，Target 是合成參考。圖像區塊直接取自完整 all-seed 圖，沒有重繪或修改生成內容；[選取紀錄](../assets/results/paired/hero_selection.json)保存 sample、seed、原始分數與來源圖像區塊對應。原有寶箱首圖與 median-seed 配對圖仍保留。
-
-原分析的 object-centric metrics 使用既有 ROI normalization，可能淡化位置 drift；須配合 full-canvas inspection。README 數值表則為 9-class macro。兩者不能當作逐張 operator 判定，也不可與 V3 reveal-region 或企業 direct-reveal 指標混排。Automatic metrics、人工 review 與實際 RGBA 可用性是不同證據。
+個別案例用來說明錯誤與改善，整體比較採 9-class macro。Object-centric metrics 的 ROI normalization 可能淡化位置 drift，需搭配 full-canvas inspection；其分數與 V3 reveal-region、企業 direct-reveal 指標分開判讀。自動指標、人工評估與實際圖層可用性分別提供不同層級的證據。

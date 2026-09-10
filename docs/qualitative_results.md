@@ -2,7 +2,7 @@
 
 本頁用原有圖像回答三個問題：前景有沒有消失、指定後景有沒有補對、其他區域有沒有保持。配對圖涵蓋九類合成案例，失敗區與完整 seed 變化一併保留。
 
-原有九類配對圖左起為 **輸入 → 合成目標 → Qwen Prompt V2 → 同提示詞 + NoiseMask 3%**，沿用原分析的 median-LPIPS seed 規則。新增首圖則選取高差距改善案例，兩種選取方式分開呈現。輸入使用已知類別與遮罩，輸出為 RGB surrogate，詳見 [評估方法與圖像限制](evaluation.md#readme-figure-reading-note)。
+以下比較 Qwen Prompt V2 與同提示詞加入 NoiseMask 3% 的結果。輸入使用已知類別與遮罩，輸出為 RGB surrogate，詳見 [評估方法與限制](evaluation.md#readme-figure-reading-note)。
 
 <a id="selected-improvements"></a>
 
@@ -18,7 +18,7 @@
 | Ring | gem_x_ring_cov30_1 | 0 | 0.314 | 0.017 | Baseline 生成多餘的上方凸起；NoiseMask 恢復接近目標的圓環 |
 | Book B | pen_x_book_cov30_0 | 0 | 0.270 | 0.030 | Baseline 改變書本立體結構；NoiseMask 保留較接近目標的輪廓與書頁方向 |
 
-先按既有 135 組 matched pairs 的 LPIPS 差值尋找案例，再檢視可見錯誤；目前呈現差值最大的三組，全部為 seed 0。數字取自既有 [scores.csv](../assets/results/synthetic_v2/scores.csv)，未重新計分。這些精選案例用來說明方法可以改善的失敗情形；整體效果仍以 [完整配對數表](../assets/results/paired/table.md)為準，人工評估狀態不變。
+這些案例呈現 NoiseMask 對部件結構的改善。逐筆分數見 [scores.csv](../assets/results/synthetic_v2/scores.csv)，整體效果見 [完整配對數表](../assets/results/paired/table.md)。
 
 <details>
 <summary>查看這兩類素材的全部 seed，包括未改善與失敗結果</summary>

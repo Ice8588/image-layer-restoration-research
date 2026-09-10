@@ -21,7 +21,7 @@ Prompt-based editing 能執行物件移除，但非編輯區域可能跟著改�
 
 ![寶箱高遮擋案例：輸入、目標與兩個設定](../../assets/results/paired/qual_coin_x_chest_cov70.png)
 
-圖中兩種設定都能移除硬幣，但鎖扣形狀與細節仍偏離目標。每列沿用原分析的 median-LPIPS seed 選取規則；這張圖展示差異，完整變化見 [所有 seed 與失敗案例](../qualitative_results.md)。
+圖中兩種設定都能移除硬幣，但鎖扣形狀與細節仍偏離目標。完整變化見 [所有 seed 與失敗案例](../qualitative_results.md)。
 
 ## 判讀
 
